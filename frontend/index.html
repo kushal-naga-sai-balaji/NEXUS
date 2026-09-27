@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus // Deal Intelligence Agent (Powered by Vectorize Hindsight)</title>
+  <meta name="description" content="Autonomous enterprise B2B deal intelligence copilot with persistent biomimetic memory powered by Vectorize Hindsight. Remembers stakeholder objections, competitor moves, and learns winning tactics.">
+  
+  <!-- Modern Typography from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <!-- Top Navigation & Header -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="logo-container">
+        <div class="logo-orb">
+          <div class="orb-inner"></div>
+        </div>
+        <div class="logo-text">
+          <div class="brand-title">NEXUS <span class="brand-highlight">// DEAL COCKPIT</span></div>
+          <div class="brand-subtitle">Autonomous B2B Intelligence &bull; Powered by <span class="vectorize-tag">Vectorize Hindsight</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Stats Bar -->
+    <div class="header-center">
+      <div class="stat-pill">
+        <span class="stat-label">Pipeline ARR</span>
+        <span class="stat-value" id="header-total-arr">$1.52M</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Win Rate</span>
+        <span class="stat-value highlight-green">+28%</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Memory Nodes</span>
+        <span class="stat-value" id="header-memory-count">12 Active</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Triage Time</span>
+        <span class="stat-value highlight-cyan">30s vs 45m</span>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <button class="guided-demo-btn" id="btn-guided-demo" title="Start Interactive 4-Stage Executive Walkthrough">
+        <span class="pulse-dot"></span>
+        <span>1-Click Guided Demo</span>
+      </button>
+
+      <div class="connection-badge" id="btn-open-settings" title="Click to configure API Keys & Hindsight Cloud">
+        <span class="status-indicator live" id="connection-status-dot"></span>
+        <span id="connection-status-text">Hindsight Hybrid Engine</span>
+        <span class="gear-icon">⚙️</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Guided Demo Progress Bar (Visible during guided demo) -->
+  <div class="guided-demo-banner" id="guided-demo-banner" style="display: none;">
+    <div class="banner-content">
+      <div class="banner-step-badge" id="demo-step-badge">STEP 1 OF 4</div>
+      <div class="banner-text">
+        <strong id="demo-step-title">Day 1: Cold Discovery & Grounding</strong>
+        <p id="demo-step-desc">CTO Marcus Vance explains custom RAG failures. Retaining foundational facts into Hindsight's World & Experience memory tiers.</p>
+      </div>
+    </div>
+    <div class="banner-actions">
+      <button class="banner-nav-btn" id="demo-prev-btn" disabled>&larr; Previous</button>
+      <button class="banner-nav-btn primary" id="demo-next-btn">Next Step &rarr;</button>
+      <button class="banner-close-btn" id="demo-close-btn" title="Exit Demo Mode">&times;</button>
+    </div>
+  </div>
+
+  <!-- Primary Application Container -->
+  <div class="app-layout">
+    <!-- Left Sidebar: Deals & Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-section-title">
+        <span>ACTIVE ENTERPRISE DEALS</span>
+        <button class="new-deal-btn" id="btn-new-deal" title="Create New Enterprise Deal">+ New</button>
+      </div>
+
+      <div class="deal-list" id="deal-list-container">
+        <!-- Dynamically populated deal cards -->
+        <div class="deal-card-skeleton">Loading deals...</div>
+      </div>
+
+      <div class="sidebar-section-title" style="margin-top: 1.5rem;">
+        <span>COGNITIVE CAPABILITIES</span>
+      </div>
+
+      <nav class="sub-nav">
+        <button class="nav-tab" data-tab="learning" id="tab-btn-learning">
+          <span class="nav-icon">📈</span>
+          <span class="nav-text">Agent Learning Curve</span>
+          <span class="new-badge" style="background: #10b981;">Visible ROI</span>
+        </button>
+        <button class="nav-tab active" data-tab="cockpit" id="tab-btn-cockpit">
+          <span class="nav-icon">📊</span>
+          <span class="nav-text">Deal Cockpit & Timeline</span>
+        </button>
+        <button class="nav-tab" data-tab="briefing" id="tab-btn-briefing">
+          <span class="nav-icon">🎯</span>
+          <span class="nav-text">Pre-Call Tactical Briefing</span>
+        </button>
+        <button class="nav-tab" data-tab="coaching" id="tab-btn-coaching">
+          <span class="nav-icon">🛡️</span>
+          <span class="nav-text">Live Objection Coach</span>
+        </button>
+        <button class="nav-tab" data-tab="memory" id="tab-btn-memory">
+          <span class="nav-icon">🧠</span>
+          <span class="nav-text">Hindsight Memory Bank</span>
+          <span class="memory-count-badge" id="sidebar-mem-badge">4 Tiers</span>
+        </button>
+
+        <button class="nav-tab" data-tab="artifacts" id="tab-btn-artifacts">
+          <span class="nav-icon">📑</span>
+          <span class="nav-text">Deal Evidence & Artifacts</span>
+        </button>
+        <button class="nav-tab" data-tab="reflection" id="tab-btn-reflection">
+          <span class="nav-icon">🔮</span>
+          <span class="nav-text">Strategic Reflection</span>
+        </button>
+      </nav>
+
+      <!-- Hindsight Memory Biomimetic Tiers Mini-Status -->
+      <div class="memory-tiers-widget">
+        <div class="widget-header">
+          <span>Hindsight Biomimetic Hierarchy</span>
+        </div>
+        <div class="tier-meters">
+          <div class="tier-meter-row">
+            <span class="tier-dot blue"></span>
+            <span class="tier-name">World</span>
+            <span class="tier-count" id="meter-world-count">0</span>
+          </div>
+          <div class="tier-meter-row">
+            <span class="tier-dot emerald"></span>
+            <span class="tier-name">Experience</span>
+            <span class="tier-count" id="meter-exp-count">0</span>
+          </div>
+          <div class="tier-meter-row">
+            <span class="tier-dot amber"></span>
+            <span class="tier-name">Observation</span>
+            <span class="tier-count" id="meter-obs-count">0</span>
+          </div>
+          <div class="tier-meter-row">
+            <span class="tier-dot purple"></span>
+            <span class="tier-name">Opinion</span>
+            <span class="tier-count" id="meter-op-count">0</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Content -->
+    <main class="main-content">
+      
+      <!-- ==================== TAB 1: DEAL COCKPIT & TIMELINE ==================== -->
+      <section class="tab-pane active" id="pane-cockpit">
+        <div class="deal-header-banner" id="cockpit-deal-header">
+          <!-- Filled dynamically -->
+        </div>
+
+        <div class="cockpit-grid">
+          <!-- Left Column: Stakeholder Matrix & Buying Committee -->
+          <div class="cockpit-col-left">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">
+                  <span class="card-icon">👥</span>
+                  <span>Buying Committee & Psychological Dossier</span>
+                </div>
+                <span class="card-badge" id="stakeholder-count-badge">4 Stakeholders</span>
+              </div>
+              <div class="card-body" id="stakeholder-matrix-container">
+                <!-- Dynamically populated stakeholder cards -->
+              </div>
+            </div>
+
+            <!-- Competitor Threat Radar -->
+            <div class="card" style="margin-top: 1.25rem;">
+              <div class="card-header">
+                <div class="card-title">
+                  <span class="card-icon">⚔️</span>
+                  <span>Competitor Threat Radar & Counter-Positions</span>
+                </div>
+                <span class="card-badge threat">Active Threat</span>
+              </div>
+              <div class="card-body" id="competitor-radar-container">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Live Interaction Timeline & Ingestion -->
+          <div class="cockpit-col-right">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">
+                  <span class="card-icon">📜</span>
+                  <span>Deal Interaction History & Memory Trail</span>
+                </div>
+                <button class="action-btn small primary" id="btn-open-ingest-modal">
+                  <span>+ Ingest Meeting / Call</span>
+                </button>
+              </div>
+              <div class="card-body">
+                <div class="timeline-container" id="interactions-timeline-container">
+                  <!-- Dynamically populated timeline items -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 2: PRE-CALL TACTICAL BRIEFING ==================== -->
+      <section class="tab-pane" id="pane-briefing">
+        <div class="card briefing-generator-card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">🎯</span>
+              <span>Autonomous Pre-Call Tactical Briefing Generator</span>
+            </div>
+            <span class="card-badge highlight">Hindsight TEMPR Recall</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Select an upcoming call and target stakeholder. Nexus will execute TEMPR multi-strategy recall against the Hindsight memory bank, retrieving stakeholder psychology, past promises, fatal landmines, and battle-tested scripts.
+            </p>
+
+            <div class="briefing-controls">
+              <div class="control-group">
+                <label for="brief-stakeholder-select">Target Stakeholder</label>
+                <select id="brief-stakeholder-select" class="form-select">
+                  <!-- Dynamically filled -->
+                </select>
+              </div>
+              <div class="control-group">
+                <label for="brief-call-type-select">Call Type & Agenda</label>
+                <select id="brief-call-type-select" class="form-select">
+                  <option value="Executive Pricing & Concession Showdown">Executive Pricing & Concession Showdown (CFO / Procurement)</option>
+                  <option value="Security Architecture & Compliance Deep-Dive">Security Architecture & Compliance Deep-Dive (CISO)</option>
+                  <option value="Technical Architecture & POC Milestone">Technical Architecture & POC Milestone (CTO / VP Eng)</option>
+                  <option value="Final Contract & MSA Closing">Final Contract & MSA Closing (Executive Committee)</option>
+                </select>
+              </div>
+              <div class="control-group action-group">
+                <button class="action-btn primary pulse-on-hover" id="btn-generate-briefing">
+                  <span class="sparkle-icon">✨</span>
+                  <span>Generate Tactical Briefing</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Briefing Output Container -->
+            <div class="briefing-output-area" id="briefing-output-container">
+              <div class="empty-state">
+                <div class="empty-icon">🎯</div>
+                <h3>Ready to Synthesize Pre-Call Intelligence</h3>
+                <p>Click "Generate Tactical Briefing" to run Hindsight TEMPR recall and prepare your battle plan.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 3: LIVE OBJECTION COACH ==================== -->
+      <section class="tab-pane" id="pane-coaching">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">🛡️</span>
+              <span>Real-Time Objection Coaching with Historical Memory Citations</span>
+            </div>
+            <span class="card-badge">Sub-second Recall</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Enter any enterprise objection or choose a realistic preset. Nexus recalls winning tactics and gives a calibrated 3-step response with margin-protecting Give-Get tradeoffs.
+            </p>
+
+            <div class="presets-row">
+              <span class="presets-label">Quick Presets:</span>
+              <button class="preset-chip" data-objection="Datadog offered us a 32% discount to renew. Unless you match their $450k price, we cannot justify switching to your platform.">
+                💰 CFO Datadog 32% Discount
+              </button>
+              <button class="preset-chip" data-objection="How can you guarantee our customer data in your memory banks won't leak into other clients' agent sessions or be used to train models?">
+                🔒 CISO Multi-Tenant Leakage
+              </button>
+              <button class="preset-chip" data-objection="We already have an in-house engineering team building custom LangChain RAG on Postgres. Why shouldn't we keep that?">
+                ⚙️ In-house RAG Objection
+              </button>
+              <button class="preset-chip" data-objection="Your implementation timeline says 4 weeks. We need to be fully operational before the quarter ends in 10 days.">
+                ⏱️ Rapid Timeline Pushback
+              </button>
+            </div>
+
+            <div class="objection-input-wrapper">
+              <textarea id="objection-input-text" class="form-textarea" rows="3" placeholder="Paste or type buyer objection here..."></textarea>
+              <button class="action-btn primary large" id="btn-submit-objection">
+                <span>⚔️ Coach Counter-Response</span>
+              </button>
+            </div>
+
+            <!-- Coaching Result Display -->
+            <div class="coaching-result-container" id="coaching-result-container" style="display: none;">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 4: HINDSIGHT MEMORY BANK ==================== -->
+      <section class="tab-pane" id="pane-memory">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">🧠</span>
+              <span>Hindsight Biomimetic Memory Bank (4-Tier Cognitive Hierarchy)</span>
+            </div>
+            <div class="header-actions">
+              <button class="action-btn small secondary" id="btn-refresh-memory">🔄 Refresh</button>
+              <button class="action-btn small primary" id="btn-open-retain-modal">+ Retain New Memory</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="memory-search-bar">
+              <input type="text" id="memory-search-query" class="form-input" placeholder="Search memory using Hindsight TEMPR (e.g., 'Datadog discount', 'CISO compliance', 'SLA')">
+              <button class="action-btn primary" id="btn-search-memory">TEMPR Recall</button>
+            </div>
+
+            <!-- 4 Biomimetic Tiers Filter / Tabs -->
+            <div class="tier-filter-tabs">
+              <button class="tier-tab-btn active" data-tier="all">All Tiers (<span id="count-all-tiers">0</span>)</button>
+              <button class="tier-tab-btn blue" data-tier="World">World Facts (<span id="count-world-tier">0</span>)</button>
+              <button class="tier-tab-btn emerald" data-tier="Experience">Experience Events (<span id="count-exp-tier">0</span>)</button>
+              <button class="tier-tab-btn amber" data-tier="Observation">Observations (<span id="count-obs-tier">0</span>)</button>
+              <button class="tier-tab-btn purple" data-tier="Opinion">Opinions & Mental Models (<span id="count-op-tier">0</span>)</button>
+            </div>
+
+            <!-- Memory Nodes Grid -->
+            <div class="memory-cards-grid" id="memory-cards-container">
+              <!-- Dynamically populated memory nodes -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- ==================== TAB 6: STRATEGIC REFLECTION ==================== -->
+      <section class="tab-pane" id="pane-reflection">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">🔮</span>
+              <span>Hindsight Reflect: Strategic Sales Playbooks & Win/Loss Synthesis</span>
+            </div>
+            <button class="action-btn primary pulse-on-hover" id="btn-trigger-reflect">
+              <span class="sparkle-icon">✨</span>
+              <span>Run Deep Reflection</span>
+            </button>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Hindsight's <code>reflect</code> operation scans across all deal banks and the global company repository to synthesize emergent mental models, identify high-converting objection rebuttals, and construct living playbooks.
+            </p>
+
+            <div class="reflection-output-container" id="reflection-output-container">
+              <!-- Dynamically populated reflection content -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 0: AGENT LEARNING CURVE ==================== -->
+      <section class="tab-pane" id="pane-learning">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">📈</span>
+              <span>The Cognitive Learning Curve: Watch the Agent Evolve Over Time</span>
+            </div>
+            <span class="card-badge highlight">Visible Progression</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              The true power of Vectorize Hindsight is that the agent gets noticeably more competent after every interaction.
+              Click each stage below to inspect the agent's competence jump, memory tier expansions, and the drastic difference in dialogue before and after Hindsight memory.
+            </p>
+
+            <!-- Learning Curve Progress Tracker -->
+            <div class="learning-stages-grid" id="learning-stages-container">
+              <!-- Dynamically populated from /api/learning-curve -->
+            </div>
+
+            <!-- Detailed Stage Comparison Display -->
+            <div class="stage-detail-card" id="stage-detail-container" style="margin-top: 1.5rem;">
+              <!-- Filled when a stage is clicked -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 7: DEAL EVIDENCE & ARTIFACTS ==================== -->
+      <section class="tab-pane" id="pane-artifacts">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">📑</span>
+              <span>Enterprise Deal Evidence & Real-World Artifacts</span>
+            </div>
+            <span class="card-badge">Production Realistic Data</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              High-stakes deals are won or lost in the details. Inspect authentic enterprise artifacts: CISO security redlines, official $650,000 order form line items, and competitive unit economics teardowns.
+            </p>
+
+            <div class="artifacts-nav-tabs">
+              <button class="artifact-tab-btn active" data-artifact="ciso_email">✉️ CISO Email Redline (Elena Rostova)</button>
+              <button class="artifact-tab-btn" data-artifact="quote_sheet">💰 Official Order Form ($650k ARR)</button>
+              <button class="artifact-tab-btn" data-artifact="teardown">⚔️ Datadog vs Hindsight Teardown</button>
+            </div>
+
+            <div class="artifact-display-viewer" id="artifact-viewer-container" style="margin-top: 1.25rem;">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+    </main>
+  </div>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- Modal: Ingest Meeting Transcript -->
+  <div class="modal-overlay" id="modal-ingest" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Ingest Sales Interaction into Hindsight</h3>
+        <button class="modal-close-btn" id="close-modal-ingest">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Interaction Type</label>
+          <select id="modal-interaction-type" class="form-select">
+            <option value="Meeting Transcript">Zoom / Teams Call Transcript</option>
+            <option value="Email Thread">Email Thread / Redline Notes</option>
+            <option value="Executive Review">Executive Committee Meeting</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Stakeholder Name</label>
+          <input type="text" id="modal-stakeholder-name" class="form-input" placeholder="e.g. David Sterling (CFO)">
+        </div>
+        <div class="form-group">
+          <label>Transcript or Notes</label>
+          <textarea id="modal-transcript-text" class="form-textarea" rows="6" placeholder="Paste conversation transcript, customer objections, or executive notes..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="action-btn secondary" id="cancel-modal-ingest">Cancel</button>
+        <button class="action-btn primary" id="submit-modal-ingest">Analyze & Retain to Hindsight</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Retain Custom Memory Directly -->
+  <div class="modal-overlay" id="modal-retain" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Retain Memory into Hindsight Bank</h3>
+        <button class="modal-close-btn" id="close-modal-retain">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Target Memory Bank</label>
+          <input type="text" id="modal-retain-bank" class="form-input" value="nexus-deal-acme-titan" readonly>
+        </div>
+        <div class="form-group">
+          <label>Biomimetic Memory Tier</label>
+          <select id="modal-retain-tier" class="form-select">
+            <option value="World">World (Account fact, constraint, firmographics)</option>
+            <option value="Experience" selected>Experience (Interaction, quote, past event)</option>
+            <option value="Observation">Observation (Cross-session pattern, trend)</option>
+            <option value="Opinion">Opinion / Mental Model (Belief, strategy, playbook)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Memory Content</label>
+          <textarea id="modal-retain-content" class="form-textarea" rows="4" placeholder="Enter memory text to retain..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Tags (comma separated)</label>
+          <input type="text" id="modal-retain-tags" class="form-input" placeholder="e.g. cfo, datadog, pricing, won_tactic">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="action-btn secondary" id="cancel-modal-retain">Cancel</button>
+        <button class="action-btn primary" id="submit-modal-retain">Commit to Hindsight</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Settings & API Configuration -->
+  <div class="modal-overlay" id="modal-settings" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Hindsight Cloud & LLM Configuration</h3>
+        <button class="modal-close-btn" id="close-modal-settings">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="settings-alert-box">
+          <span class="info-icon">💡</span>
+          <div>
+            <strong>Hindsight Promo Code Available!</strong><br>
+            Use promo code <code>MEMHACK99</code> on <a href="https://ui.hindsight.vectorize.io/" target="_blank" rel="noopener">ui.hindsight.vectorize.io</a> for $50 free credits!
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Hindsight API Key</label>
+          <input type="password" id="input-hindsight-key" class="form-input" placeholder="Enter your Hindsight Cloud API Key (or leave blank for Hybrid Engine)">
+        </div>
+
+        <div class="form-group">
+          <label>Hindsight Base URL</label>
+          <input type="text" id="input-hindsight-url" class="form-input" value="https://api.hindsight.vectorize.io">
+        </div>
+
+        <div class="form-group">
+          <label>Groq API Key (Optional)</label>
+          <input type="password" id="input-groq-key" class="form-input" placeholder="Enter Groq API Key (gsk_...) for ultra-fast Llama 3.3 inference">
+        </div>
+
+        <div class="connection-health-box" id="settings-health-box">
+          Status: Checking engine...
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="action-btn secondary" id="cancel-modal-settings">Close</button>
+        <button class="action-btn primary" id="save-modal-settings">Save & Reconnect</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
