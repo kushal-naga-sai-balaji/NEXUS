@@ -167,5 +167,5 @@ Open your browser to:
 - **100% Institutional Memory Retention:** When sales reps leave, their learned objection intelligence remains permanently inside Hindsight.
 
 ---
-*Built with ❤️ for the Vectorize Hindsight Hackathon 3.0.*
-
+ Article - https://www.reddit.com/u/kushal_22/s/oWzrbSgIdw
+ linkedin - https://lnkd.in/p/dfCq2ZBJ
