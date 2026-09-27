@@ -67,33 +67,6 @@ Unlike stateless RAG or basic chat history windows that blow past context token 
 
 ---
 
-## ⚡ Core Hindsight Operations in Nexus
-
-### 1. `retain` (Continuous Event & Objection Ingestion)
-- Automatically ingests call transcripts, email redlines, and executive notes.
-- Extracts objections with severity, competitor mentions, and buying signals.
-- Tags and commits structured memory units into the deal's Hindsight memory bank.
-
-### 2. `recall` (TEMPR Multi-Strategy Retrieval)
-- Combines **T**emporal recency, **E**ntity extraction, **M**atch / BM25 lexical overlap, and **P**recision weighting.
-- Retrieves past won deals and stakeholder hot-buttons in **<45ms**.
-- Generates pre-call tactical briefings and live objection responses with historical memory citations.
-
-### 3. `reflect` (Autonomous Playbook Synthesis)
-- Triggers reflective reasoning across all deal banks.
-- Synthesizes emerging competitor moves, objection friction matrices, and pricing elasticity models.
-- Automatically stores newly discovered playbooks back into Hindsight as updated Opinion nodes.
-
----
-
-## 🏆 Side-by-Side: The Hindsight Memory Advantage
-
-| Feature / Challenge | Standard LLM / No Memory | Nexus with Hindsight Memory |
-| :--- | :--- | :--- |
-| **CFO Price War ($200k Discount Demand)** | Panics; surrenders 30% discount immediately down to $450k ARR. | Recalls CTO's ROI confession & Won Deal #84. Trades $50k migration credits for 2-yr term at $620k ARR (**$170,000 margin saved!**). |
-| **CISO Security Interrogation** | Gives vague generic hand-waving (*"we use industry best practices"*), freezing deal for 4 weeks. | Recalls Elena's SOC2 Type II requirements and cites cryptographic per-bank namespace partitioning. Approves in 4 days. |
-| **Cross-Deal Learning** | Forgets every conversation once context resets; repeats identical sales mistakes. | Retains patterns across hundreds of deals, building living competitive displacement playbooks. |
-| **Pre-Call Preparation** | Rep spends 45 minutes digging through messy CRM notes. | 1-Click generation in **30 seconds** with psychological dossier, fatal landmines, and battle-tested scripts. |
 
 ---
 
@@ -184,25 +157,7 @@ Open your browser to:
 
 ---
 
-## 📦 Submission Deliverables (Content Guide Compliant)
 
-All required deliverables for team submission are documented and formatted according to official competition rules:
-
-1. **Publication Article (Prompt 1 & 2):**  
-   📄 [`article.md`](article.md) — 1,840-word technical deep-dive: *"Why I Replaced Vector Databases with Hindsight for Enterprise Sales"*. Includes real code snippets, SEO-optimized links, concrete before/after interaction comparisons, and lessons learned. Strictly zero mentions of forbidden competition keywords.
-   - Title ideas: [`docs/ARTICLE_TITLES_PROMPT_1.md`](docs/ARTICLE_TITLES_PROMPT_1.md)
-2. **Social Media Kit (Prompt 3 & Step 5):**  
-   📱 [`docs/LINKEDIN_POST.md`](docs/LINKEDIN_POST.md) — Under 800-character LinkedIn post written in the engineering style of Andrej Karpathy, complete with first-comment template and hashtag suite.  
-   🌐 [`docs/REDDIT_POSTS.md`](docs/REDDIT_POSTS.md) — Ready-to-publish posts for `r/llmdevs`, `r/aiagents`, `r/aimemory`, and `r/sideproject`.
-3. **Demo Video Suite (Prompt 5 & 6):**  
-   🎬 [`docs/VIDEO_SCRIPT.md`](docs/VIDEO_SCRIPT.md) — 3-minute conversational demo script with precise screen cues and 5 high-CTR YouTube titles.  
-   🖼️ [`docs/THUMBNAIL_PROMPT.md`](docs/THUMBNAIL_PROMPT.md) & [`docs/youtube_thumbnail.jpg`](docs/youtube_thumbnail.jpg) — High-impact 16:9 viral YouTube thumbnail graphic.  
-4. **Hindsight Memory Architecture:**  
-   🧠 [`docs/HINDSIGHT_MEMORY_EXPLANATION.md`](docs/HINDSIGHT_MEMORY_EXPLANATION.md) — Comprehensive technical explanation of the 4 cognitive tiers (World, Experience, Observation, Opinion), TEMPR multi-strategy search, and measurable behavioral delta.
-5. **Live Judge Presentation Guide:**  
-   ⚡ [`docs/LIVE_DEMO_SCRIPT.md`](docs/LIVE_DEMO_SCRIPT.md) — 60-second elevator pitch and 3-minute comprehensive live walkthrough script for judging sessions.
-
----
 
 ## 📊 Measurable Real-World Impact
 
