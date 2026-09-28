@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexus // Deal Intelligence Agent (Powered by Vectorize Hindsight)</title>
-  <meta name="description" content="Autonomous enterprise B2B deal intelligence copilot with persistent biomimetic memory powered by Vectorize Hindsight. Remembers stakeholder objections, competitor moves, and learns winning tactics.">
+  <title>Nexus // Deal Intelligence Copilot (Powered by Vectorize Hindsight)</title>
+  <meta name="description" content="Autonomous enterprise B2B deal intelligence copilot with persistent biomimetic memory powered by Vectorize Hindsight. 16 core intelligence capabilities remembering stakeholder objections, competitor moves, pricing concessions, and learning winning tactics.">
   
   <!-- Modern Typography from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +15,7 @@
 </head>
 <body>
   <!-- Top Navigation & Header -->
+  <!-- Top Navigation & Header -->
   <header class="app-header">
     <div class="header-left">
       <div class="logo-container">
@@ -22,36 +23,62 @@
           <div class="orb-inner"></div>
         </div>
         <div class="logo-text">
-          <div class="brand-title">NEXUS <span class="brand-highlight">// DEAL COCKPIT</span></div>
-          <div class="brand-subtitle">Autonomous B2B Intelligence &bull; Powered by <span class="vectorize-tag">Vectorize Hindsight</span></div>
+          <div class="brand-title">NEXUS</div>
+          <div class="brand-subtitle">"Remember every deal. Understand every conversation. Act on every opportunity."</div>
         </div>
       </div>
     </div>
 
-    <!-- Quick Stats Bar -->
+    <!-- Quick Stats Bar & Selectors -->
     <div class="header-center">
       <div class="stat-pill">
         <span class="stat-label">Pipeline ARR</span>
-        <span class="stat-value" id="header-total-arr">$1.52M</span>
+        <span class="stat-value" id="header-total-arr">₹1.28 Cr ($1.52M)</span>
       </div>
       <div class="stat-pill">
-        <span class="stat-label">Win Rate</span>
-        <span class="stat-value highlight-green">+28%</span>
+        <span class="stat-label">Margin Preserved</span>
+        <span class="stat-value highlight-green" id="header-margin-saved">₹25L ($300k)</span>
       </div>
       <div class="stat-pill">
-        <span class="stat-label">Memory Nodes</span>
-        <span class="stat-value" id="header-memory-count">12 Active</span>
+        <span class="stat-label">Active Account</span>
+        <select id="header-deal-selector" class="header-select">
+          <option value="deal-abc-security">ABC Technologies (₹25L / $300k)</option>
+          <option value="deal-nova-infra">Nova Systems (₹45L / $550k)</option>
+          <option value="deal-vertex-fraud">Vertex Finance (₹35L / $420k)</option>
+          <option value="deal-cloudcore-protection">CloudCore Solutions (₹28L / $340k)</option>
+        </select>
       </div>
       <div class="stat-pill">
-        <span class="stat-label">Triage Time</span>
-        <span class="stat-value highlight-cyan">30s vs 45m</span>
+        <span class="stat-label">User Role</span>
+        <select id="header-role-selector" class="header-select">
+          <option value="rep">Sales Rep (Sarah Jenkins)</option>
+          <option value="manager">Sales Manager (Alex Rivera)</option>
+          <option value="admin">Admin (System Admin)</option>
+        </select>
       </div>
     </div>
 
     <div class="header-right">
-      <button class="guided-demo-btn" id="btn-guided-demo" title="Start Interactive 4-Stage Executive Walkthrough">
+      <button class="briefing-shortcut-btn" id="btn-header-deal-xray" title="Run 18-Dimension Pin-to-Pin Deal X-Ray">
+        <span>🔍 Deal X-Ray</span>
+      </button>
+
+      <button class="briefing-shortcut-btn" id="btn-header-loki-connect" title="View LOKI Connect Relationship Flow">
+        <span>🔗 LOKI Connect</span>
+      </button>
+
+      <button class="briefing-shortcut-btn" id="btn-open-briefing-modal" title="Generate 30-Second Pre-Meeting Deal Briefing">
+        <span>⚡ 30s Briefing</span>
+      </button>
+
+      <button class="guided-demo-btn pulse" id="btn-start-live-call-header" title="Launch Real-Time 3-Panel Sales Call Demonstration">
         <span class="pulse-dot"></span>
-        <span>1-Click Guided Demo</span>
+        <span>▶ START LIVE DEMO</span>
+      </button>
+
+      <button class="loki-header-pill" id="btn-header-toggle-loki" title="Open LOKI AI Assistant (Live Operational Knowledge Intelligence)">
+        <span class="loki-sparkle">🧠</span>
+        <span>LOKI <span class="badge-mini">AI</span></span>
       </button>
 
       <div class="connection-badge" id="btn-open-settings" title="Click to configure API Keys & Hindsight Cloud">
@@ -92,41 +119,115 @@
         <div class="deal-card-skeleton">Loading deals...</div>
       </div>
 
-      <div class="sidebar-section-title" style="margin-top: 1.5rem;">
-        <span>COGNITIVE CAPABILITIES</span>
+      <div class="sidebar-section-title" style="margin-top: 1.25rem;">
+        <span>REAL-TIME SALES COCKPIT</span>
       </div>
-
       <nav class="sub-nav">
-        <button class="nav-tab" data-tab="learning" id="tab-btn-learning">
-          <span class="nav-icon">📈</span>
-          <span class="nav-text">Agent Learning Curve</span>
-          <span class="new-badge" style="background: #10b981;">Visible ROI</span>
+        <button class="nav-tab active" data-tab="live-call" id="tab-btn-live-call">
+          <span class="nav-icon">🎙️</span>
+          <span class="nav-text">Live Call (3-Panel)</span>
+          <span class="counter-badge urgent">LIVE</span>
         </button>
-        <button class="nav-tab active" data-tab="cockpit" id="tab-btn-cockpit">
+      </nav>
+
+      <div class="sidebar-section-title" style="margin-top: 1rem;">
+        <span>CORE DASHBOARDS</span>
+      </div>
+      <nav class="sub-nav">
+        <button class="nav-tab" data-tab="cockpit" id="tab-btn-cockpit">
           <span class="nav-icon">📊</span>
-          <span class="nav-text">Deal Cockpit & Timeline</span>
+          <span class="nav-text">Executive Dashboard</span>
+          <span class="feature-tag">16 Features</span>
         </button>
-        <button class="nav-tab" data-tab="briefing" id="tab-btn-briefing">
-          <span class="nav-icon">🎯</span>
-          <span class="nav-text">Pre-Call Tactical Briefing</span>
+        <button class="nav-tab" data-tab="deals" id="tab-btn-deals">
+          <span class="nav-icon">💼</span>
+          <span class="nav-text">Deals Pipeline</span>
+          <span class="counter-badge" id="badge-deals-count">4</span>
         </button>
-        <button class="nav-tab" data-tab="coaching" id="tab-btn-coaching">
-          <span class="nav-icon">🛡️</span>
-          <span class="nav-text">Live Objection Coach</span>
+        <button class="nav-tab" data-tab="deal-details" id="tab-btn-deal-details">
+          <span class="nav-icon">📑</span>
+          <span class="nav-text">Deal Details (15 Tabs)</span>
         </button>
+      </nav>
+
+      <div class="sidebar-section-title" style="margin-top: 1rem;">
+        <span>DEAL MEMORY & REASONING</span>
+      </div>
+      <nav class="sub-nav">
         <button class="nav-tab" data-tab="memory" id="tab-btn-memory">
           <span class="nav-icon">🧠</span>
-          <span class="nav-text">Hindsight Memory Bank</span>
+          <span class="nav-text">Persistent Deal Memory</span>
           <span class="memory-count-badge" id="sidebar-mem-badge">4 Tiers</span>
         </button>
+        <button class="nav-tab" data-tab="objections" id="tab-btn-objections">
+          <span class="nav-icon">💬</span>
+          <span class="nav-text">Objection Intelligence</span>
+        </button>
+        <button class="nav-tab" data-tab="winning-patterns" id="tab-btn-winning-patterns">
+          <span class="nav-icon">🏆</span>
+          <span class="nav-text">Winning Patterns</span>
+        </button>
+        <button class="nav-tab" data-tab="comparison" id="tab-btn-comparison">
+          <span class="nav-icon">📊</span>
+          <span class="nav-text">Historical Deal Comparison</span>
+        </button>
+        <button class="nav-tab" data-tab="learning-evolution" id="tab-btn-learning-evolution">
+          <span class="nav-icon">🧬</span>
+          <span class="nav-text">Persistent Learning</span>
+        </button>
+      </nav>
 
+      <div class="sidebar-section-title" style="margin-top: 1rem;">
+        <span>RELATIONSHIPS & MARKET</span>
+      </div>
+      <nav class="sub-nav">
+        <button class="nav-tab" data-tab="customers" id="tab-btn-customers">
+          <span class="nav-icon">🏢</span>
+          <span class="nav-text">Customers</span>
+          <span class="counter-badge">4</span>
+        </button>
+        <button class="nav-tab" data-tab="stakeholders" id="tab-btn-stakeholders">
+          <span class="nav-icon">👥</span>
+          <span class="nav-text">Stakeholder Intelligence</span>
+        </button>
+        <button class="nav-tab" data-tab="competitors" id="tab-btn-competitors">
+          <span class="nav-icon">🥊</span>
+          <span class="nav-text">Competitor Intelligence</span>
+        </button>
+        <button class="nav-tab" data-tab="meetings" id="tab-btn-meetings">
+          <span class="nav-icon">📞</span>
+          <span class="nav-text">Meeting Intelligence</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-section-title" style="margin-top: 1rem;">
+        <span>EXECUTION & INFRASTRUCTURE</span>
+      </div>
+      <nav class="sub-nav">
+        <button class="nav-tab" data-tab="tasks" id="tab-btn-tasks">
+          <span class="nav-icon">🎯</span>
+          <span class="nav-text">Tasks & Next Actions</span>
+          <span class="counter-badge urgent" id="badge-tasks-count">4</span>
+        </button>
+        <button class="nav-tab" data-tab="analytics" id="tab-btn-analytics">
+          <span class="nav-icon">📈</span>
+          <span class="nav-text">Deal Analytics</span>
+        </button>
+        <button class="nav-tab" data-tab="integrations" id="tab-btn-integrations">
+          <span class="nav-icon">🔗</span>
+          <span class="nav-text">CRM & Integrations</span>
+        </button>
+        <button class="nav-tab" data-tab="settings" id="tab-btn-settings">
+          <span class="nav-icon">⚙️</span>
+          <span class="nav-text">Settings & Security</span>
+        </button>
+        <button class="nav-tab" data-tab="learning" id="tab-btn-learning">
+          <span class="nav-icon">🚀</span>
+          <span class="nav-text">Agent Learning Curve</span>
+        </button>
         <button class="nav-tab" data-tab="artifacts" id="tab-btn-artifacts">
           <span class="nav-icon">📑</span>
           <span class="nav-text">Deal Evidence & Artifacts</span>
-        </button>
-        <button class="nav-tab" data-tab="reflection" id="tab-btn-reflection">
-          <span class="nav-icon">🔮</span>
-          <span class="nav-text">Strategic Reflection</span>
         </button>
       </nav>
 
@@ -163,13 +264,280 @@
     <!-- Main Workspace Content -->
     <main class="main-content">
       
-      <!-- ==================== TAB 1: DEAL COCKPIT & TIMELINE ==================== -->
-      <section class="tab-pane active" id="pane-cockpit">
+      <!-- ==================== REAL-TIME 3-PANEL SALES CALL COCKPIT (SECTIONS 2, 3, 16, 23 & 28) ==================== -->
+      <section class="tab-pane active" id="pane-live-call">
+        <!-- Live Call Status & Audio Stream Controller -->
+        <div class="live-call-status-bar">
+          <div class="call-meta-left">
+            <div class="live-recording-badge">
+              <span class="live-rec-dot"></span>
+              <span>LIVE CALL SESSION</span>
+            </div>
+            <div class="call-title-box">
+              <span class="call-title" id="call-active-account-title">ABC Technologies &mdash; Enterprise Security Platform</span>
+              <span class="call-subtitle">Stakeholder: Rohan Sharma (CTO) &bull; Value: ₹25,00,000 ($300k) &bull; Competitor: Competitor X</span>
+            </div>
+          </div>
+
+          <!-- Audio Waveform Simulation Bar -->
+          <div class="audio-waveform-container" title="Live Audio Input Stream (Active)">
+            <div class="wave-bar active"></div>
+            <div class="wave-bar active"></div>
+            <div class="wave-bar active"></div>
+            <div class="wave-bar active"></div>
+            <div class="wave-bar active"></div>
+            <div class="wave-bar active"></div>
+            <div class="wave-bar active"></div>
+            <div class="wave-bar active"></div>
+          </div>
+
+          <!-- Live Call Interactive Controls -->
+          <div class="call-controls-right">
+            <button class="call-btn primary" id="btn-run-live-demo-stream" title="Auto-Stream Realistic Enterprise Conversation Sequence">
+              <span>▶ START LIVE DEMO</span>
+            </button>
+            <button class="call-btn" id="btn-advance-demo-turn" title="Advance Conversation by 1 Turn Manually">
+              <span>⏭ Next Turn</span>
+            </button>
+            <button class="call-btn" id="btn-reset-live-call" title="Clear Live Session & Reset Transcript">
+              <span>🔄 Reset</span>
+            </button>
+            <button class="call-btn danger" id="btn-end-live-call-summary" title="Conclude Meeting and Generate Post-Call Memory Summary">
+              <span>⏹ End Call & Summarize</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3-Panel Main Cockpit Layout -->
+        <div class="cockpit-3panel-grid">
+          
+          <!-- LEFT PANEL: LIVE CONVERSATION (Section 16: LEFT PANEL) -->
+          <div class="panel-column panel-left">
+            <div class="panel-header">
+              <div class="panel-header-title">
+                <span>🎙️</span>
+                <span>LIVE CONVERSATION</span>
+              </div>
+              <span class="panel-badge" id="live-turn-counter">0 Turns</span>
+            </div>
+            
+            <div class="panel-body-scroll" id="live-transcript-feed">
+              <div class="empty-state-hint" id="transcript-empty-hint" style="text-align: center; padding: 2rem 1rem; color: var(--text-dim);">
+                <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎧</p>
+                <p>Click <strong>▶ START LIVE DEMO</strong> or type below to stream customer dialogue.</p>
+              </div>
+            </div>
+
+            <!-- Manual speech-to-text / rep input bar -->
+            <div class="transcript-input-area">
+              <input type="text" id="manual-transcript-input" class="transcript-input-field" placeholder="Simulate customer speech or objection...">
+              <button class="transcript-send-btn" id="btn-send-manual-transcript">Send</button>
+            </div>
+          </div>
+
+          <!-- CENTER PANEL: REAL-TIME INTELLIGENCE (Section 16: CENTER PANEL) -->
+          <div class="panel-column panel-center">
+            <div class="panel-header">
+              <div class="panel-header-title">
+                <span>⚡</span>
+                <span>REAL-TIME INTELLIGENCE & OBJECTION COPILOT</span>
+              </div>
+              <span class="panel-badge highlight" id="live-signals-count">0 Signals</span>
+            </div>
+
+            <div class="panel-body-scroll" id="live-intelligence-feed">
+              <div class="empty-state-hint" id="intel-empty-hint" style="text-align: center; padding: 2.5rem 1.5rem; color: var(--text-dim);">
+                <p style="font-size: 2rem; margin-bottom: 0.5rem;">🧠</p>
+                <p style="font-weight: 600; color: var(--text-muted); margin-bottom: 0.25rem;">Copilot Ingesting Audio Stream</p>
+                <p style="font-size: 0.85rem;">Autonomous intent, objection classification, buying signals, and winning TCO counter-tactics will surface in real time.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT PANEL: PERSISTENT DEAL MEMORY (Section 16: RIGHT PANEL) -->
+          <div class="panel-column panel-right">
+            <div class="panel-header">
+              <div class="panel-header-title">
+                <span>🧠</span>
+                <span>PERSISTENT DEAL MEMORY</span>
+              </div>
+              <span class="panel-badge">Hindsight Graph</span>
+            </div>
+
+            <div class="panel-body-scroll" id="live-deal-memory-sidebar">
+              <!-- Dynamically populated deal snapshot -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==================== TAB 0: DEAL COCKPIT & 16-FEATURE COMMAND CENTER ==================== -->
+      <section class="tab-pane" id="pane-cockpit">
         <div class="deal-header-banner" id="cockpit-deal-header">
           <!-- Filled dynamically -->
         </div>
 
-        <div class="cockpit-grid">
+        <!-- 16 Deal Intelligence Capabilities Interactive Command Grid -->
+        <div class="card capabilities-hub-card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">⚡</span>
+              <span>16 Core Deal Intelligence Capabilities (Click Any to Launch)</span>
+            </div>
+            <span class="card-badge highlight">All Systems Active</span>
+          </div>
+          <div class="card-body">
+            <div class="capabilities-matrix-grid">
+              <!-- 1. Deal Memory -->
+              <div class="cap-tile" data-jump-tab="memory">
+                <div class="cap-top">
+                  <span class="cap-icon">🧠</span>
+                  <span class="cap-badge blue">Biomimetic</span>
+                </div>
+                <div class="cap-title">Deal Memory</div>
+                <div class="cap-desc">4-tier persistent cognitive memory across calls, quotes & objections.</div>
+              </div>
+              <!-- 2. Instant Deal Summary -->
+              <div class="cap-tile" data-jump-tab="summary">
+                <div class="cap-top">
+                  <span class="cap-icon">📋</span>
+                  <span class="cap-badge emerald">Ready</span>
+                </div>
+                <div class="cap-title">Instant Deal Summary</div>
+                <div class="cap-desc">60-second executive pre-call brief & call readiness dossier.</div>
+              </div>
+              <!-- 3. Next-Best Action -->
+              <div class="cap-tile" data-jump-tab="next-actions">
+                <div class="cap-top">
+                  <span class="cap-icon">🎯</span>
+                  <span class="cap-badge rose">3 Prioritized</span>
+                </div>
+                <div class="cap-title">Next-Best Action</div>
+                <div class="cap-desc">Recommended moves, timing, channels & ready-to-send outreach scripts.</div>
+              </div>
+              <!-- 4. Objection Intelligence -->
+              <div class="cap-tile" data-jump-tab="objections">
+                <div class="cap-top">
+                  <span class="cap-icon">💬</span>
+                  <span class="cap-badge amber">Live Coach</span>
+                </div>
+                <div class="cap-title">Objection Intelligence</div>
+                <div class="cap-desc">Objection tracking, historical win citations & Give-Get trade-offs.</div>
+              </div>
+              <!-- 5. Winning Pattern Detection -->
+              <div class="cap-tile" data-jump-tab="winning-patterns">
+                <div class="cap-top">
+                  <span class="cap-icon">🏆</span>
+                  <span class="cap-badge purple">87% Win Rate</span>
+                </div>
+                <div class="cap-title">Winning Pattern Detection</div>
+                <div class="cap-desc">Proven playbooks from Won Deals (Nordic Cloud #84, CyberShield).</div>
+              </div>
+              <!-- 6. Stakeholder Intelligence -->
+              <div class="cap-tile" data-jump-tab="stakeholders">
+                <div class="cap-top">
+                  <span class="cap-icon">👥</span>
+                  <span class="cap-badge blue">4 Profiles</span>
+                </div>
+                <div class="cap-title">Stakeholder Intelligence</div>
+                <div class="cap-desc">Buying committee roles, interest scores, hot buttons & psychology.</div>
+              </div>
+              <!-- 7. Competitor Tracking -->
+              <div class="cap-tile" data-jump-tab="competitors">
+                <div class="cap-top">
+                  <span class="cap-icon">🥊</span>
+                  <span class="cap-badge rose">High Threat</span>
+                </div>
+                <div class="cap-title">Competitor Tracking</div>
+                <div class="cap-desc">Competitor radar (Datadog), customer mentions, battlecards & kill points.</div>
+              </div>
+              <!-- 8. Pricing Intelligence -->
+              <div class="cap-tile" data-jump-tab="pricing">
+                <div class="cap-top">
+                  <span class="cap-icon">💰</span>
+                  <span class="cap-badge emerald">$170k Saved</span>
+                </div>
+                <div class="cap-title">Pricing Intelligence</div>
+                <div class="cap-desc">ARR defenses, budget cycles, concession logs & margin protection.</div>
+              </div>
+              <!-- 9. Meeting Intelligence -->
+              <div class="cap-tile" data-jump-tab="meetings">
+                <div class="cap-top">
+                  <span class="cap-icon">📞</span>
+                  <span class="cap-badge cyan">AI Parser</span>
+                </div>
+                <div class="cap-title">Meeting Intelligence</div>
+                <div class="cap-desc">Converts transcripts into decisions, customer & rep action items.</div>
+              </div>
+              <!-- 10. Deal Risk Detection -->
+              <div class="cap-tile" data-jump-tab="risks">
+                <div class="cap-top">
+                  <span class="cap-icon">🔮</span>
+                  <span class="cap-badge emerald">Low Risk (88%)</span>
+                </div>
+                <div class="cap-title">Deal Risk Detection</div>
+                <div class="cap-desc">Warns on stalled touches, unresolved objections & scope creep.</div>
+              </div>
+              <!-- 11. Deal Progress Tracking -->
+              <div class="cap-tile" data-jump-tab="progress">
+                <div class="cap-top">
+                  <span class="cap-icon">📈</span>
+                  <span class="cap-badge cyan">Stage 4 / 6</span>
+                </div>
+                <div class="cap-title">Deal Progress Tracking</div>
+                <div class="cap-desc">Visual stage gate pipeline, completed milestones & velocity status.</div>
+              </div>
+              <!-- 12. Follow-up Intelligence -->
+              <div class="cap-tile" data-jump-tab="followups">
+                <div class="cap-top">
+                  <span class="cap-icon">🔔</span>
+                  <span class="cap-badge amber">Optimal Timing</span>
+                </div>
+                <div class="cap-title">Follow-up Intelligence</div>
+                <div class="cap-desc">Reminds reps when/how to follow up + 1-click email drafter.</div>
+              </div>
+              <!-- 13. CRM Knowledge Search -->
+              <div class="cap-tile" data-jump-tab="crm-search">
+                <div class="cap-top">
+                  <span class="cap-icon">🔍</span>
+                  <span class="cap-badge blue">Natural Q&A</span>
+                </div>
+                <div class="cap-title">CRM Knowledge Search</div>
+                <div class="cap-desc">Ask questions in plain English with instant cited answers from memory.</div>
+              </div>
+              <!-- 14. Personalized Sales Strategy -->
+              <div class="cap-tile" data-jump-tab="strategy">
+                <div class="cap-top">
+                  <span class="cap-icon">🤝</span>
+                  <span class="cap-badge purple">Customized</span>
+                </div>
+                <div class="cap-title">Personalized Strategy</div>
+                <div class="cap-desc">Account-specific narrative, psychological alignment & closing roadmap.</div>
+              </div>
+              <!-- 15. Deal Comparison -->
+              <div class="cap-tile" data-jump-tab="comparison">
+                <div class="cap-top">
+                  <span class="cap-icon">📊</span>
+                  <span class="cap-badge cyan">Benchmark</span>
+                </div>
+                <div class="cap-title">Deal Comparison</div>
+                <div class="cap-desc">Side-by-side comparison with historical Won Deals (Nordic Cloud #84).</div>
+              </div>
+              <!-- 16. Persistent Learning -->
+              <div class="cap-tile" data-jump-tab="learning-evolution">
+                <div class="cap-top">
+                  <span class="cap-icon">🧬</span>
+                  <span class="cap-badge emerald">Self-Evolving</span>
+                </div>
+                <div class="cap-title">Persistent Learning</div>
+                <div class="cap-desc">Learns continuously from closed deals & promotes insights globally.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cockpit-grid" style="margin-top: 1.5rem;">
           <!-- Left Column: Stakeholder Matrix & Buying Committee -->
           <div class="cockpit-col-left">
             <div class="card">
@@ -222,7 +590,497 @@
         </div>
       </section>
 
-      <!-- ==================== TAB 2: PRE-CALL TACTICAL BRIEFING ==================== -->
+      <!-- ==================== FEATURE 2: INSTANT DEAL SUMMARY ==================== -->
+      <section class="tab-pane" id="pane-summary">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">📋</span>
+              <span>Instant Deal Summary & Pre-Call Executive Dossier</span>
+            </div>
+            <div class="header-actions">
+              <button class="action-btn secondary small" id="btn-copy-summary">📋 Copy Summary</button>
+              <button class="action-btn primary small pulse-on-hover" id="btn-refresh-summary">✨ Refresh Intelligence</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Instantly synthesizes a 60-second executive snapshot of the entire deal before entering a sales call. Recalls stakeholder hot buttons, margin defense posture, critical talking points, and dangerous landmines.
+            </p>
+
+            <div class="summary-cockpit-grid" id="summary-content-container">
+              <div class="loading-state">Synthesizing instant deal summary with Hindsight memory...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURE 3: NEXT-BEST ACTION ==================== -->
+      <section class="tab-pane" id="pane-next-actions">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">🎯</span>
+              <span>Next-Best Action Recommendation Engine</span>
+            </div>
+            <span class="card-badge highlight">AI Prioritized</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Calculates prioritized next steps to advance the deal based on open objections, stakeholder sentiment, and deal velocity. Includes contextual outreach scripts ready for 1-click execution.
+            </p>
+
+            <div class="next-actions-list" id="next-actions-container">
+              <div class="loading-state">Analyzing deal stage and calculating next actions...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURE 4: OBJECTION INTELLIGENCE ==================== -->
+      <section class="tab-pane" id="pane-objections">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">💬</span>
+              <span>Objection Intelligence Hub & Real-Time Tactical Coach</span>
+            </div>
+            <span class="card-badge">Memory-Backed Rebuttals</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Tracks customer objections across meetings, detects status (Open, In Progress, Resolved), and provides battle-tested 3-stage responses with margin-protecting Give-Get trade-offs.
+            </p>
+
+            <!-- Presets Row -->
+            <div class="presets-row">
+              <span class="presets-label">Test Real-World Objections:</span>
+              <button class="preset-chip" data-objection="Datadog offered us a 32% discount to renew. Unless you match their $450k price, we cannot justify switching to your platform.">
+                💰 CFO Datadog 32% Discount
+              </button>
+              <button class="preset-chip" data-objection="How can you guarantee our customer data in your memory banks won't leak into other clients' agent sessions or be used to train models?">
+                🔒 CISO Multi-Tenant Leakage
+              </button>
+              <button class="preset-chip" data-objection="We already have an in-house engineering team building custom LangChain RAG on Postgres. Why shouldn't we keep that?">
+                ⚙️ In-house RAG Objection
+              </button>
+            </div>
+
+            <div class="objection-input-wrapper">
+              <textarea id="objection-input-text" class="form-textarea" rows="3" placeholder="Type or paste buyer objection here to coach in real-time..."></textarea>
+              <button class="action-btn primary large" id="btn-submit-objection">
+                <span>⚔️ Coach Tactical Counter</span>
+              </button>
+            </div>
+
+            <!-- Coaching Result Display -->
+            <div class="coaching-result-container" id="coaching-result-container" style="display: none; margin-top: 1.5rem;"></div>
+
+            <!-- Extracted Deal Objections Log -->
+            <div class="section-divider-title" style="margin-top: 2rem;">
+              <span>EXTRACTED DEAL OBJECTIONS FROM INTERACTIONS</span>
+            </div>
+            <div class="deal-objections-list" id="deal-objections-container"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURE 5: WINNING PATTERN DETECTION ==================== -->
+      <section class="tab-pane" id="pane-winning-patterns">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">🏆</span>
+              <span>Winning Pattern Detection & Cross-Deal Recommender</span>
+            </div>
+            <span class="card-badge highlight">Cross-Deal Synthesis</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Hindsight analyzes patterns from historical won deals (e.g. Nordic Cloud Systems Won Deal #84, CyberShield Won Deal #62) and identifies tactics that match the exact objections and dynamics in this account.
+            </p>
+
+            <div class="winning-patterns-grid" id="winning-patterns-container">
+              <div class="loading-state">Matching winning patterns against Hindsight global repository...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURE 6: STAKEHOLDER INTELLIGENCE ==================== -->
+      <section class="tab-pane" id="pane-stakeholders">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">👥</span>
+              <span>Stakeholder Intelligence & Buying Committee Dossier</span>
+            </div>
+            <button class="action-btn small primary" id="btn-add-stakeholder">+ Add Stakeholder</button>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Comprehensive profiles for every decision-maker and influencer. Tracks influence role, interest and engagement levels (0-100%), hot buttons, historical concerns, and calibrated communication guidance.
+            </p>
+
+            <div class="stakeholders-deep-grid" id="stakeholders-deep-container">
+              <div class="loading-state">Loading stakeholder intelligence dossier...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURE 7: COMPETITOR TRACKING ==================== -->
+      <section class="tab-pane" id="pane-competitors">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">🥊</span>
+              <span>Competitor Tracking & Battlefield Counter-Positioning</span>
+            </div>
+            <span class="card-badge threat">Competitive Radar</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Remembers competitors discussed during meetings, tracks customer-stated advantages and weaknesses, and arms reps with battlefield battlecards, reframing narratives, and disqualifying kill points.
+            </p>
+
+            <div class="competitor-cards-grid" id="competitors-deep-container">
+              <div class="loading-state">Loading competitor intelligence radar...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURE 8: PRICING INTELLIGENCE ==================== -->
+      <section class="tab-pane" id="pane-pricing">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">💰</span>
+              <span>Pricing Intelligence & Margin Defense Cockpit</span>
+            </div>
+            <span class="card-badge highlight">Margin Shield</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Tracks ARR targets, list prices, competitor discount demands, and historical concession negotiations. Ensures reps defend company margins by trading onboarding services rather than recurring ARR discounts.
+            </p>
+
+            <div class="pricing-cockpit-container" id="pricing-cockpit-container">
+              <div class="loading-state">Loading pricing intelligence metrics...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURE 9: MEETING INTELLIGENCE ==================== -->
+      <section class="tab-pane" id="pane-meetings">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">📞</span>
+              <span>Meeting Intelligence & Conversation Converter</span>
+            </div>
+            <span class="card-badge">Instant Extraction</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Paste Zoom or Teams meeting transcripts or select a preset. Nexus converts conversations into structured decisions made, customer action items, rep commitments, and retains memories into Hindsight.
+            </p>
+
+            <div class="presets-row">
+              <span class="presets-label">Load Realistic Meeting Transcripts:</span>
+              <button class="preset-chip" id="preset-meeting-cto">CTO Architectural Discovery (Marcus Vance)</button>
+              <button class="preset-chip" id="preset-meeting-ciso">CISO Security Interrogation (Elena Rostova)</button>
+              <button class="preset-chip" id="preset-meeting-cfo">CFO Pricing Showdown (David Sterling)</button>
+            </div>
+
+            <div class="form-group" style="margin-top: 1rem;">
+              <textarea id="meeting-raw-transcript" class="form-textarea" rows="5" placeholder="Paste conversation transcript, meeting notes, or email thread..."></textarea>
+            </div>
+
+            <div class="meeting-form-controls">
+              <div class="control-pair">
+                <input type="text" id="meeting-stakeholder-input" class="form-input" placeholder="Stakeholder Name (e.g. David Sterling CFO)">
+                <select id="meeting-type-input" class="form-select">
+                  <option value="Meeting Transcript">Zoom / Teams Call Transcript</option>
+                  <option value="Executive Review">Executive Review</option>
+                  <option value="Email Thread">Email Thread Redline</option>
+                </select>
+              </div>
+              <button class="action-btn primary large" id="btn-analyze-meeting">
+                <span>✨ Analyze Meeting & Retain to Hindsight</span>
+              </button>
+            </div>
+
+            <!-- Extracted Meeting Intelligence Container -->
+            <div class="meeting-output-container" id="meeting-output-container" style="display: none; margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURE 10: DEAL RISK DETECTION ==================== -->
+      <section class="tab-pane" id="pane-risks">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">🔮</span>
+              <span>Deal Risk Detection & Early Warning Radar</span>
+            </div>
+            <span class="card-badge highlight">Proactive Safeguards</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Detects hidden deal risks: competitor discount anchoring, stalled communication, unanswered CISO compliance requirements, or fiscal year boundary slippage, and outputs prescriptive mitigations.
+            </p>
+
+            <div class="risks-cockpit-grid" id="risks-cockpit-container">
+              <div class="loading-state">Running deal risk heuristics and sentiment radar...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURE 11: DEAL PROGRESS TRACKING ==================== -->
+      <section class="tab-pane" id="pane-progress">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">📈</span>
+              <span>Deal Progress & Stage-Gate Milestone Tracker</span>
+            </div>
+            <span class="card-badge">Pipeline Velocity</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Visualizes the enterprise sales stage gates from Discovery to Technical POC, Security Clearance, Commercial Negotiation, Legal MSA, and Closed Won. Tracks blockers and completion velocity.
+            </p>
+
+            <div class="progress-cockpit-container" id="progress-cockpit-container">
+              <div class="loading-state">Calculating stage gate completion and cycle days...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURE 12: FOLLOW-UP INTELLIGENCE ==================== -->
+      <section class="tab-pane" id="pane-followups">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">🔔</span>
+              <span>Follow-up Intelligence & Smart Outreach Drafter</span>
+            </div>
+            <span class="card-badge">Optimal Timing Engine</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Reminds reps when and how to contact key decision-makers based on executive open rates and deal milestones. Generates personalized email drafts addressing past meeting notes with 1 click.
+            </p>
+
+            <div class="followups-cockpit-grid" id="followups-cockpit-container">
+              <div class="loading-state">Loading scheduled follow-ups and optimal contact windows...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURE 13: CRM KNOWLEDGE SEARCH ==================== -->
+      <section class="tab-pane" id="pane-crm-search">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">🔍</span>
+              <span>CRM Knowledge Search (Natural Language Memory Q&A)</span>
+            </div>
+            <span class="card-badge highlight">TEMPR Search</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Ask questions about the account in plain English (e.g. <em>“What were the customer's main concerns?”</em> or <em>“What did the CFO say about Datadog pricing?”</em>). Nexus searches Hindsight memories and provides instant answers with citations.
+            </p>
+
+            <div class="search-input-box">
+              <input type="text" id="crm-search-input" class="form-input large" placeholder="Ask anything about this deal (e.g. 'What were the customer's main concerns?')">
+              <button class="action-btn primary large" id="btn-crm-search-submit">Search CRM</button>
+            </div>
+
+            <!-- Quick Presets -->
+            <div class="presets-row" style="margin-top: 1rem;">
+              <span class="presets-label">Click to Ask:</span>
+              <button class="preset-chip" data-crm-q="What were the customer's main concerns?">“What were the customer's main concerns?”</button>
+              <button class="preset-chip" data-crm-q="What did the CFO say about Datadog pricing?">“What did the CFO say about Datadog pricing?”</button>
+              <button class="preset-chip" data-crm-q="What security proof does CISO Elena require?">“What security proof does CISO Elena require?”</button>
+              <button class="preset-chip" data-crm-q="What concessions have been discussed so far?">“What concessions have been discussed so far?”</button>
+            </div>
+
+            <!-- CRM Search Result Display -->
+            <div class="crm-search-results-area" id="crm-search-results-container" style="display: none; margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURE 14: PERSONALIZED SALES STRATEGY ==================== -->
+      <section class="tab-pane" id="pane-strategy">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">🤝</span>
+              <span>Personalized Sales Strategy & Closing Blueprint</span>
+            </div>
+            <span class="card-badge highlight">Account-Tailored</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Custom-crafted strategy tailored specifically to Acme's 4,200 employees, October 31 budget boundary, and buying committee psychological dynamics. Guides the rep from negotiation to signed contract.
+            </p>
+
+            <div class="strategy-cockpit-grid" id="strategy-cockpit-container">
+              <div class="loading-state">Synthesizing personalized account sales strategy...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURE 15: DEAL COMPARISON ==================== -->
+      <section class="tab-pane" id="pane-comparison">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">📊</span>
+              <span>Deal Comparison & Historical Benchmark Analysis</span>
+            </div>
+            <div class="header-actions">
+              <select id="benchmark-deal-select" class="form-select small">
+                <!-- Dynamically filled with historical won deals -->
+              </select>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Compare the active deal side-by-side with historical won deals (like Nordic Cloud Systems #84) facing similar competitor discount threats to discover proven margin defense patterns.
+            </p>
+
+            <div class="comparison-display-area" id="comparison-display-container">
+              <div class="loading-state">Running comparative benchmark analysis...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURE 16: PERSISTENT LEARNING ==================== -->
+      <section class="tab-pane" id="pane-learning-evolution">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">🧬</span>
+              <span>Persistent Learning & Continuous Memory Evolution</span>
+            </div>
+            <button class="action-btn primary small" id="btn-open-feedback-modal">+ Log Outcome / Feedback</button>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Unlike static LLMs or standard CRMs that forget everything, Vectorize Hindsight continuously extracts lessons from won deals, resolved objections, and concessions, elevating them into living mental models.
+            </p>
+
+            <!-- 4-Stage Cognitive Feedback Diagram -->
+            <div class="cognitive-loop-diagram">
+              <div class="loop-step">
+                <span class="step-num">1</span>
+                <strong>Interactions</strong>
+                <p>Calls & transcripts ingested</p>
+              </div>
+              <div class="loop-arrow">&rarr;</div>
+              <div class="loop-step">
+                <span class="step-num">2</span>
+                <strong>Experiences</strong>
+                <p>Quotes & objections retained</p>
+              </div>
+              <div class="loop-arrow">&rarr;</div>
+              <div class="loop-step">
+                <span class="step-num">3</span>
+                <strong>Observations</strong>
+                <p>Cross-deal patterns consolidated</p>
+              </div>
+              <div class="loop-arrow">&rarr;</div>
+              <div class="loop-step active">
+                <span class="step-num">4</span>
+                <strong>Opinions & Playbooks</strong>
+                <p>Living strategic beliefs synthesized</p>
+              </div>
+            </div>
+
+            <div class="learning-insights-list" id="learning-insights-container" style="margin-top: 1.5rem;">
+              <div class="loading-state">Loading persistent cognitive learning log...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURE 1: DEAL MEMORY BANK ==================== -->
+      <section class="tab-pane" id="pane-memory">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">🧠</span>
+              <span>Hindsight Biomimetic Memory Bank (4-Tier Cognitive Hierarchy)</span>
+            </div>
+            <div class="header-actions">
+              <button class="action-btn small secondary" id="btn-refresh-memory">🔄 Refresh</button>
+              <button class="action-btn small primary" id="btn-open-retain-modal">+ Retain New Memory</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="memory-search-bar">
+              <input type="text" id="memory-search-query" class="form-input" placeholder="Search memory using Hindsight TEMPR (e.g., 'Datadog discount', 'CISO compliance', 'SLA')">
+              <button class="action-btn primary" id="btn-search-memory">TEMPR Recall</button>
+            </div>
+
+            <!-- 4 Biomimetic Tiers Filter / Tabs -->
+            <div class="tier-filter-tabs">
+              <button class="tier-tab-btn active" data-tier="all">All Tiers (<span id="count-all-tiers">0</span>)</button>
+              <button class="tier-tab-btn blue" data-tier="World">World Facts (<span id="count-world-tier">0</span>)</button>
+              <button class="tier-tab-btn emerald" data-tier="Experience">Experience Events (<span id="count-exp-tier">0</span>)</button>
+              <button class="tier-tab-btn amber" data-tier="Observation">Observations (<span id="count-obs-tier">0</span>)</button>
+              <button class="tier-tab-btn purple" data-tier="Opinion">Opinions & Mental Models (<span id="count-op-tier">0</span>)</button>
+            </div>
+
+            <!-- Memory Nodes Grid -->
+            <div class="memory-cards-grid" id="memory-cards-container">
+              <!-- Dynamically populated memory nodes -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB: AGENT LEARNING CURVE ==================== -->
+      <section class="tab-pane" id="pane-learning">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">📈</span>
+              <span>The Cognitive Learning Curve: Watch the Agent Evolve Over Time</span>
+            </div>
+            <span class="card-badge highlight">Visible Progression</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              The true power of Vectorize Hindsight is that the agent gets noticeably more competent after every interaction.
+              Click each stage below to inspect the agent's competence jump, memory tier expansions, and the drastic difference in dialogue before and after Hindsight memory.
+            </p>
+
+            <div class="learning-stages-grid" id="learning-stages-container">
+              <!-- Dynamically populated from /api/learning-curve -->
+            </div>
+
+            <div class="stage-detail-card" id="stage-detail-container" style="margin-top: 1.5rem;">
+              <!-- Filled when a stage is clicked -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB: PRE-CALL TACTICAL BRIEFING ==================== -->
       <section class="tab-pane" id="pane-briefing">
         <div class="card briefing-generator-card">
           <div class="card-header">
@@ -261,7 +1119,6 @@
               </div>
             </div>
 
-            <!-- Briefing Output Container -->
             <div class="briefing-output-area" id="briefing-output-container">
               <div class="empty-state">
                 <div class="empty-icon">🎯</div>
@@ -273,145 +1130,7 @@
         </div>
       </section>
 
-      <!-- ==================== TAB 3: LIVE OBJECTION COACH ==================== -->
-      <section class="tab-pane" id="pane-coaching">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">
-              <span class="card-icon">🛡️</span>
-              <span>Real-Time Objection Coaching with Historical Memory Citations</span>
-            </div>
-            <span class="card-badge">Sub-second Recall</span>
-          </div>
-          <div class="card-body">
-            <p class="section-intro">
-              Enter any enterprise objection or choose a realistic preset. Nexus recalls winning tactics and gives a calibrated 3-step response with margin-protecting Give-Get tradeoffs.
-            </p>
-
-            <div class="presets-row">
-              <span class="presets-label">Quick Presets:</span>
-              <button class="preset-chip" data-objection="Datadog offered us a 32% discount to renew. Unless you match their $450k price, we cannot justify switching to your platform.">
-                💰 CFO Datadog 32% Discount
-              </button>
-              <button class="preset-chip" data-objection="How can you guarantee our customer data in your memory banks won't leak into other clients' agent sessions or be used to train models?">
-                🔒 CISO Multi-Tenant Leakage
-              </button>
-              <button class="preset-chip" data-objection="We already have an in-house engineering team building custom LangChain RAG on Postgres. Why shouldn't we keep that?">
-                ⚙️ In-house RAG Objection
-              </button>
-              <button class="preset-chip" data-objection="Your implementation timeline says 4 weeks. We need to be fully operational before the quarter ends in 10 days.">
-                ⏱️ Rapid Timeline Pushback
-              </button>
-            </div>
-
-            <div class="objection-input-wrapper">
-              <textarea id="objection-input-text" class="form-textarea" rows="3" placeholder="Paste or type buyer objection here..."></textarea>
-              <button class="action-btn primary large" id="btn-submit-objection">
-                <span>⚔️ Coach Counter-Response</span>
-              </button>
-            </div>
-
-            <!-- Coaching Result Display -->
-            <div class="coaching-result-container" id="coaching-result-container" style="display: none;">
-              <!-- Populated dynamically -->
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================== TAB 4: HINDSIGHT MEMORY BANK ==================== -->
-      <section class="tab-pane" id="pane-memory">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">
-              <span class="card-icon">🧠</span>
-              <span>Hindsight Biomimetic Memory Bank (4-Tier Cognitive Hierarchy)</span>
-            </div>
-            <div class="header-actions">
-              <button class="action-btn small secondary" id="btn-refresh-memory">🔄 Refresh</button>
-              <button class="action-btn small primary" id="btn-open-retain-modal">+ Retain New Memory</button>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="memory-search-bar">
-              <input type="text" id="memory-search-query" class="form-input" placeholder="Search memory using Hindsight TEMPR (e.g., 'Datadog discount', 'CISO compliance', 'SLA')">
-              <button class="action-btn primary" id="btn-search-memory">TEMPR Recall</button>
-            </div>
-
-            <!-- 4 Biomimetic Tiers Filter / Tabs -->
-            <div class="tier-filter-tabs">
-              <button class="tier-tab-btn active" data-tier="all">All Tiers (<span id="count-all-tiers">0</span>)</button>
-              <button class="tier-tab-btn blue" data-tier="World">World Facts (<span id="count-world-tier">0</span>)</button>
-              <button class="tier-tab-btn emerald" data-tier="Experience">Experience Events (<span id="count-exp-tier">0</span>)</button>
-              <button class="tier-tab-btn amber" data-tier="Observation">Observations (<span id="count-obs-tier">0</span>)</button>
-              <button class="tier-tab-btn purple" data-tier="Opinion">Opinions & Mental Models (<span id="count-op-tier">0</span>)</button>
-            </div>
-
-            <!-- Memory Nodes Grid -->
-            <div class="memory-cards-grid" id="memory-cards-container">
-              <!-- Dynamically populated memory nodes -->
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-
-      <!-- ==================== TAB 6: STRATEGIC REFLECTION ==================== -->
-      <section class="tab-pane" id="pane-reflection">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">
-              <span class="card-icon">🔮</span>
-              <span>Hindsight Reflect: Strategic Sales Playbooks & Win/Loss Synthesis</span>
-            </div>
-            <button class="action-btn primary pulse-on-hover" id="btn-trigger-reflect">
-              <span class="sparkle-icon">✨</span>
-              <span>Run Deep Reflection</span>
-            </button>
-          </div>
-          <div class="card-body">
-            <p class="section-intro">
-              Hindsight's <code>reflect</code> operation scans across all deal banks and the global company repository to synthesize emergent mental models, identify high-converting objection rebuttals, and construct living playbooks.
-            </p>
-
-            <div class="reflection-output-container" id="reflection-output-container">
-              <!-- Dynamically populated reflection content -->
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================== TAB 0: AGENT LEARNING CURVE ==================== -->
-      <section class="tab-pane" id="pane-learning">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">
-              <span class="card-icon">📈</span>
-              <span>The Cognitive Learning Curve: Watch the Agent Evolve Over Time</span>
-            </div>
-            <span class="card-badge highlight">Visible Progression</span>
-          </div>
-          <div class="card-body">
-            <p class="section-intro">
-              The true power of Vectorize Hindsight is that the agent gets noticeably more competent after every interaction.
-              Click each stage below to inspect the agent's competence jump, memory tier expansions, and the drastic difference in dialogue before and after Hindsight memory.
-            </p>
-
-            <!-- Learning Curve Progress Tracker -->
-            <div class="learning-stages-grid" id="learning-stages-container">
-              <!-- Dynamically populated from /api/learning-curve -->
-            </div>
-
-            <!-- Detailed Stage Comparison Display -->
-            <div class="stage-detail-card" id="stage-detail-container" style="margin-top: 1.5rem;">
-              <!-- Filled when a stage is clicked -->
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================== TAB 7: DEAL EVIDENCE & ARTIFACTS ==================== -->
+      <!-- ==================== TAB: DEAL EVIDENCE & ARTIFACTS ==================== -->
       <section class="tab-pane" id="pane-artifacts">
         <div class="card">
           <div class="card-header">
@@ -439,12 +1158,370 @@
         </div>
       </section>
 
+      <!-- ==================== TAB: CUSTOMERS (SECTION 17: CUSTOMERS) ==================== -->
+      <section class="tab-pane" id="pane-customers">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">🏢</span>
+              <span>Enterprise Customer Intelligence (Persistent Memory Accounts)</span>
+            </div>
+            <span class="card-badge highlight">4 Strategic Accounts</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              NEXUS maintains multi-year persistent customer memory across subsidiaries, technical stacks, past renewals, and key executives.
+            </p>
+            <div class="customers-grid" id="customers-cards-container" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 1rem;">
+              <!-- Dynamically populated from /api/customers -->
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <!-- ==================== TAB: TASKS (SECTION 17: TASKS & NEXT ACTIONS) ==================== -->
+      <section class="tab-pane" id="pane-tasks">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">🎯</span>
+              <span>Next-Best Actions & Task Execution Engine</span>
+            </div>
+            <div class="header-actions">
+              <button class="action-btn primary small" id="btn-create-task-modal">+ Add Action Item</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              Every critical commitment, deadline, and customer objection automatically creates prioritized action items. Reps remain in full control to approve, reassign, or mark completed.
+            </p>
+            <div class="tasks-filter-bar" style="display: flex; gap: 8px; margin-bottom: 1rem;">
+              <button class="action-btn small filter-chip active" data-task-filter="all">All Tasks</button>
+              <button class="action-btn small filter-chip" data-task-filter="Pending Approval">Pending Approval</button>
+              <button class="action-btn small filter-chip" data-task-filter="In Progress">In Progress</button>
+              <button class="action-btn small filter-chip" data-task-filter="Approved">Approved</button>
+              <button class="action-btn small filter-chip" data-task-filter="Completed">Completed</button>
+            </div>
+            <div class="tasks-list-container" id="tasks-list-container" style="display: flex; flex-direction: column; gap: 10px;">
+              <!-- Dynamically populated from /api/tasks -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB: DEALS PIPELINE (SECTION 17: DEALS) ==================== -->
+      <section class="tab-pane" id="pane-deals">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">💼</span>
+              <span>Active Enterprise Deal Pipeline & Memory Graph</span>
+            </div>
+            <div class="header-actions">
+              <span class="stat-pill"><span class="stat-label">Pipeline</span><span class="stat-value">₹1.28 Cr ($1.52M)</span></span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="deals-pipeline-grid" id="deals-pipeline-container" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;">
+              <!-- Dynamically populated deal cards with stage, value, health score -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB: DEAL DETAILS 15 SUB-TABS (SECTION 18) ==================== -->
+      <section class="tab-pane" id="pane-deal-details">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">📑</span>
+              <span id="deal-details-title">Deal Details & Deep Intelligence</span>
+            </div>
+            <span class="card-badge highlight" id="deal-details-stage-badge">Negotiation</span>
+          </div>
+          <div class="card-body">
+            <!-- 15 Sub-Tabs Navigation (Section 18) -->
+            <div class="details-subnav" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
+              <button class="action-btn small details-tab-btn active" data-subtab="overview">Overview</button>
+              <button class="action-btn small details-tab-btn" data-subtab="timeline">Timeline</button>
+              <button class="action-btn small details-tab-btn" data-subtab="customer">Customer</button>
+              <button class="action-btn small details-tab-btn" data-subtab="stakeholders">Stakeholders</button>
+              <button class="action-btn small details-tab-btn" data-subtab="requirements">Requirements</button>
+              <button class="action-btn small details-tab-btn" data-subtab="objections">Objections</button>
+              <button class="action-btn small details-tab-btn" data-subtab="competitors">Competitors</button>
+              <button class="action-btn small details-tab-btn" data-subtab="pricing">Pricing</button>
+              <button class="action-btn small details-tab-btn" data-subtab="meetings">Meetings</button>
+              <button class="action-btn small details-tab-btn" data-subtab="emails">Emails</button>
+              <button class="action-btn small details-tab-btn" data-subtab="tasks">Tasks</button>
+              <button class="action-btn small details-tab-btn" data-subtab="risks">Risks</button>
+              <button class="action-btn small details-tab-btn" data-subtab="ai-insights">AI Insights</button>
+              <button class="action-btn small details-tab-btn" data-subtab="memory">Memory</button>
+              <button class="action-btn small details-tab-btn" data-subtab="next-actions">Next Actions</button>
+            </div>
+            <div class="details-subtab-content" id="details-subtab-content">
+              <!-- Dynamically populated according to active subtab -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB: ANALYTICS (SECTION 17 & 27: ANALYTICS) ==================== -->
+      <section class="tab-pane" id="pane-analytics">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">📈</span>
+              <span>Enterprise Deal Analytics & Cognitive Pattern Engine</span>
+            </div>
+            <span class="card-badge highlight">Real-time Telemetry</span>
+          </div>
+          <div class="card-body">
+            <div class="analytics-metrics-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+              <div class="metric-card" style="background: var(--bg-surface-elevated); padding: 1rem; border-radius: 10px; border: 1px solid var(--border-subtle);">
+                <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Pipeline Value</div>
+                <div style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-top: 4px;">₹1.28 Cr</div>
+                <div style="font-size: 0.75rem; color: var(--text-dim);">$1.52M ARR across 4 deals</div>
+              </div>
+              <div class="metric-card" style="background: var(--bg-surface-elevated); padding: 1rem; border-radius: 10px; border: 1px solid var(--border-subtle);">
+                <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Win Rate on TCO Reframe</div>
+                <div style="font-size: 1.4rem; font-weight: 700; color: #34d399; margin-top: 4px;">82%</div>
+                <div style="font-size: 0.75rem; color: var(--text-dim);">4 won in similar historical deals</div>
+              </div>
+              <div class="metric-card" style="background: var(--bg-surface-elevated); padding: 1rem; border-radius: 10px; border: 1px solid var(--border-subtle);">
+                <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Avg Sales Cycle</div>
+                <div style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-top: 4px;">42 Days</div>
+                <div style="font-size: 0.75rem; color: var(--text-dim);">-18 days faster with memory</div>
+              </div>
+              <div class="metric-card" style="background: var(--bg-surface-elevated); padding: 1rem; border-radius: 10px; border: 1px solid var(--border-subtle);">
+                <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Margin Preserved</div>
+                <div style="font-size: 1.4rem; font-weight: 700; color: #fbbf24; margin-top: 4px;">₹25,00,000</div>
+                <div style="font-size: 0.75rem; color: var(--text-dim);">Overcame 15% discount request</div>
+              </div>
+            </div>
+
+            <div class="analytics-charts-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+              <div class="card" style="background: var(--bg-surface-elevated); margin: 0; padding: 1.25rem; border-radius: 10px; border: 1px solid var(--border-subtle);">
+                <h4 style="margin-bottom: 0.75rem; color: var(--text-main);">Most Common Objections & Resolution Rates</h4>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
+                      <span>Pricing vs Competitor X (15% anchor)</span>
+                      <strong style="color: #34d399;">85% Win (TCO Justification)</strong>
+                    </div>
+                    <div style="height: 8px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden;">
+                      <div style="width: 85%; height: 100%; background: var(--emerald);"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
+                      <span>Deployment Timeline (December deadline)</span>
+                      <strong style="color: #38bdf8;">92% Resolved (Phased Rollout)</strong>
+                    </div>
+                    <div style="height: 8px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden;">
+                      <div style="width: 92%; height: 100%; background: var(--cyan);"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
+                      <span>Security & SOC2 Isolation</span>
+                      <strong style="color: #818cf8;">100% Cleared (Hindsight Cryptographic Bank)</strong>
+                    </div>
+                    <div style="height: 8px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden;">
+                      <div style="width: 100%; height: 100%; background: var(--primary);"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card" style="background: var(--bg-surface-elevated); margin: 0; padding: 1.25rem; border-radius: 10px; border: 1px solid var(--border-subtle);">
+                <h4 style="margin-bottom: 0.75rem; color: var(--text-main);">Competitor Threat Radar & Frequency</h4>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 6px;">
+                    <span>🥊 Competitor X</span>
+                    <span style="background: rgba(244,63,94,0.15); color: #fda4af; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: 600;">4 Mentions &bull; High Threat</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 6px;">
+                    <span>🥊 Datadog</span>
+                    <span style="background: rgba(244,63,94,0.15); color: #fda4af; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: 600;">3 Mentions &bull; High Threat</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 6px;">
+                    <span>🥊 Snowflake</span>
+                    <span style="background: rgba(245,158,11,0.15); color: #fcd34d; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: 600;">2 Mentions &bull; Medium Threat</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB: INTEGRATIONS (SECTION 14: CRM INTEGRATION ARCHITECTURE) ==================== -->
+      <section class="tab-pane" id="pane-integrations">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon">🔗</span>
+              <span>CRM & Enterprise Communication Integration Architecture</span>
+            </div>
+            <span class="card-badge highlight">Bi-Directional Sync Active</span>
+          </div>
+          <div class="card-body">
+            <p class="section-intro">
+              NEXUS integrates seamlessly with enterprise CRMs, telephony, and meeting intelligence platforms. All customer interactions, notes, and memory nodes sync automatically.
+            </p>
+            <div class="integrations-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
+              <div class="integration-card" style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                  <span style="font-size: 1.1rem; font-weight: 700;">Salesforce CRM</span>
+                  <span style="background: rgba(16,185,129,0.2); color: #34d399; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: 600;">Connected</span>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Syncs Accounts, Opportunities, Deal Stages, and Contact Roles with Hindsight memory graph.</p>
+                <button class="action-btn secondary small" onclick="alert('Salesforce: 4 Opportunities synced.')">Sync Now</button>
+              </div>
+
+              <div class="integration-card" style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                  <span style="font-size: 1.1rem; font-weight: 700;">HubSpot</span>
+                  <span style="background: rgba(16,185,129,0.2); color: #34d399; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: 600;">Connected</span>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Ingests inbound lead intelligence, email sequences, and meeting scheduling links.</p>
+                <button class="action-btn secondary small" onclick="alert('HubSpot: Contacts updated.')">Sync Now</button>
+              </div>
+
+              <div class="integration-card" style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                  <span style="font-size: 1.1rem; font-weight: 700;">Gong / Zoom Telephony</span>
+                  <span style="background: rgba(16,185,129,0.2); color: #34d399; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: 600;">Streaming Live</span>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Direct speech-to-text pipeline feeding the 3-panel live call copilot in real time.</p>
+                <button class="action-btn primary small" id="btn-jump-live-call-from-int">Launch Live Call</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
     </main>
   </div>
 
   <!-- ==================== MODALS ==================== -->
+
+  <!-- Modal: 30-Second Pre-Meeting Deal Briefing (Section 4) -->
+  <div class="modal-overlay" id="modal-pre-meeting-briefing" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>⚡</span>
+          <span>30-Second Pre-Meeting Deal Briefing</span>
+        </div>
+        <button class="modal-close-btn" id="close-modal-briefing">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-briefing-body">
+        <!-- Dynamically rendered structured briefing -->
+      </div>
+      <div class="modal-footer">
+        <button class="action-btn secondary" id="btn-export-briefing">📋 Copy Battle Plan</button>
+        <button class="action-btn primary pulse" id="btn-briefing-launch-call">▶ Launch Live Call with this Briefing</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Post-Meeting Summary & Memory Update (Section 11, 23 & 28) -->
+  <div class="modal-overlay" id="modal-post-meeting-summary" style="display: none;">
+    <div class="modal-dialog" style="max-width: 800px;">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>📝</span>
+          <span>Post-Meeting Intelligence & Persistent Memory Commit</span>
+        </div>
+        <button class="modal-close-btn" id="close-modal-summary-approval">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          NEXUS automatically extracted key discussion points, customer requirements, competitor comparisons, and commitments from the live call. Review, edit if needed, and commit to Persistent Deal Memory.
+        </p>
+
+        <div class="form-group">
+          <label><strong>Key Discussion:</strong></label>
+          <textarea id="edit-summary-discussion" class="summary-edit-field" rows="2"></textarea>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label><strong>Customer Requirements Detected:</strong></label>
+            <textarea id="edit-summary-requirements" class="summary-edit-field" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label><strong>Objections & Competitor Mentions:</strong></label>
+            <textarea id="edit-summary-objections" class="summary-edit-field" rows="3"></textarea>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label><strong>Agreed Decisions:</strong></label>
+            <textarea id="edit-summary-decisions" class="summary-edit-field" rows="2"></textarea>
+          </div>
+          <div class="form-group">
+            <label><strong>Action Items (Creates Tasks):</strong></label>
+            <textarea id="edit-summary-actions" class="summary-edit-field" rows="2"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label><strong>Mutual Commitments (Sales Rep & Customer):</strong></label>
+          <textarea id="edit-summary-commitments" class="summary-edit-field" rows="2"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="action-btn secondary" id="btn-cancel-summary-approval">Discard</button>
+        <button class="action-btn primary pulse" id="btn-approve-summary-commit">✓ Approve & Commit to Persistent Deal Memory</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Create Action Item / Task -->
+  <div class="modal-overlay" id="modal-create-task" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Create Next Action Item</h3>
+        <button class="modal-close-btn" id="close-modal-task">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Deal / Account</label>
+          <select id="task-create-deal" class="form-select">
+            <option value="deal-abc-security">ABC Technologies (Enterprise Security Platform)</option>
+            <option value="deal-nova-infra">Nova Systems (Cloud Infrastructure Upgrade)</option>
+            <option value="deal-vertex-fraud">Vertex Finance (Cybersecurity Transformation)</option>
+            <option value="deal-cloudcore-protection">CloudCore Solutions (Data Protection Platform)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Action Title</label>
+          <input type="text" id="task-create-title" class="form-input" placeholder="e.g. Deliver 24-Month TCO model to CFO Anita Roy">
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label>Priority</label>
+            <select id="task-create-priority" class="form-select">
+              <option value="Critical">🔴 Critical</option>
+              <option value="Important" selected>🟠 Important</option>
+              <option value="Normal">🟢 Normal</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Due Date</label>
+            <input type="text" id="task-create-due" class="form-input" value="Tomorrow, 5:00 PM">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="action-btn secondary" id="cancel-modal-task">Cancel</button>
+        <button class="action-btn primary" id="submit-modal-task">Create Task</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Modal: Ingest Meeting Transcript -->
   <div class="modal-overlay" id="modal-ingest" style="display: none;">
@@ -515,6 +1592,49 @@
     </div>
   </div>
 
+  <!-- Modal: Log Persistent Learning Feedback -->
+  <div class="modal-overlay" id="modal-feedback" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Log Negotiation Outcome to Persistent Learning</h3>
+        <button class="modal-close-btn" id="close-modal-feedback">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Category</label>
+          <select id="modal-feedback-category" class="form-select">
+            <option value="Pricing & Margin Defense">Pricing & Margin Defense</option>
+            <option value="Security Gatekeeper Velocity">Security Gatekeeper Velocity</option>
+            <option value="Competitor Displacement">Competitor Displacement</option>
+            <option value="Procurement & Legal Redlines">Procurement & Legal Redlines</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Cognitive Tier</label>
+          <select id="modal-feedback-tier" class="form-select">
+            <option value="Opinion">Opinion / Mental Model</option>
+            <option value="Observation" selected>Observation</option>
+            <option value="Experience">Experience</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Documented Lesson / Insight</label>
+          <textarea id="modal-feedback-insight" class="form-textarea" rows="4" placeholder="e.g. Trading 1 year of complimentary onboarding engineering resolved CFO pricing anchoring without losing ARR margin."></textarea>
+        </div>
+        <div class="form-group">
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <input type="checkbox" id="modal-feedback-promote" checked>
+            <span>Promote immediately to Global Sales Playbook</span>
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="action-btn secondary" id="cancel-modal-feedback">Cancel</button>
+        <button class="action-btn primary" id="submit-modal-feedback">Commit to Persistent Memory</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Modal: Settings & API Configuration -->
   <div class="modal-overlay" id="modal-settings" style="display: none;">
     <div class="modal-card">
@@ -553,6 +1673,216 @@
       <div class="modal-footer">
         <button class="action-btn secondary" id="cancel-modal-settings">Close</button>
         <button class="action-btn primary" id="save-modal-settings">Save & Reconnect</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== LOKI FLOATING AI ASSISTANT ==================== -->
+  <div id="loki-floating-container">
+    <!-- Floating Launcher Pill/Orb (Bottom-Right) -->
+    <div class="loki-floating-launcher" id="loki-launcher-btn" title="Open LOKI — Live Operational Knowledge Intelligence">
+      <div class="loki-orb-core">🧠</div>
+      <div class="loki-launcher-text">
+        <div class="loki-launcher-name">LOKI <span class="loki-chip">COPILOT</span></div>
+        <div class="loki-launcher-status">Intelligence Behind Every Deal</div>
+      </div>
+    </div>
+
+    <!-- Expandable LOKI Assistant Workspace Window -->
+    <div class="loki-workspace-panel" id="loki-workspace-panel" style="display: none;">
+      <!-- Panel Header -->
+      <div class="loki-panel-header">
+        <div class="loki-identity-box">
+          <div class="loki-badge-orb">🧠</div>
+          <div>
+            <div class="loki-brand-title">LOKI <span class="loki-tag">LIVE OPERATIONAL KNOWLEDGE</span></div>
+            <div class="loki-brand-sub">"Ask anything. Know everything. Act intelligently."</div>
+          </div>
+        </div>
+
+        <div class="loki-header-actions">
+          <button class="loki-tool-btn" id="loki-btn-deal-xray" title="Run 18-Dimension Pin-to-Pin Deal X-Ray">🔍 X-Ray</button>
+          <button class="loki-tool-btn" id="loki-btn-loki-connect" title="View LOKI Connect Causal Graph">🔗 Connect</button>
+          <button class="loki-tool-btn" id="loki-btn-exec-brief" title="Generate Executive Deal Brief">⚡ Brief</button>
+          <button class="loki-icon-btn" id="loki-btn-toggle-expand" title="Toggle Full Workspace / Popout Window">⛶</button>
+          <button class="loki-icon-btn close" id="loki-btn-close-panel" title="Minimize LOKI">&times;</button>
+        </div>
+      </div>
+
+      <!-- Mode Switcher Tabs -->
+      <div class="loki-mode-bar">
+        <span class="loki-mode-label">Mode:</span>
+        <button class="loki-mode-tab active" data-mode="deal">Deal</button>
+        <button class="loki-mode-tab" data-mode="customer">Customer</button>
+        <button class="loki-mode-tab" data-mode="live">Live</button>
+        <button class="loki-mode-tab" data-mode="research">Research</button>
+        <button class="loki-mode-tab" data-mode="strategy">Strategy</button>
+        <button class="loki-mode-tab" data-mode="memory">Memory</button>
+        <button class="loki-mode-tab" data-mode="executive">Executive</button>
+      </div>
+
+      <!-- Chat / Intelligence Stream Body -->
+      <div class="loki-messages-container" id="loki-messages-feed">
+        <!-- Initial Welcome Card -->
+        <div class="loki-msg-bubble assistant">
+          <div class="loki-msg-header">
+            <span class="loki-sender-tag">🧠 LOKI</span>
+            <span class="loki-msg-time">Live Operational Knowledge</span>
+          </div>
+          <div class="loki-msg-body">
+            <p><strong>I am LOKI — Live Operational Knowledge Intelligence.</strong></p>
+            <p style="color: var(--text-muted); font-size: 0.88rem; margin: 0.35rem 0;">
+              I monitor every customer conversation, stakeholder move, pricing negotiation, competitor counter, and persistent memory node for <strong id="loki-active-deal-label">ABC Technologies</strong>.
+            </p>
+            
+            <div class="loki-quick-suggestions">
+              <span class="loki-suggest-title">Suggested Inquiries:</span>
+              <div class="loki-chips-row">
+                <button class="loki-chip-btn" data-query="Tell me everything about this deal">📋 Summarize this deal</button>
+                <button class="loki-chip-btn" data-query="Why is this deal at risk?">⚠ Why is this deal at risk?</button>
+                <button class="loki-chip-btn" data-query="Who is the real decision-maker?">👤 Who is the decision-maker?</button>
+                <button class="loki-chip-btn" data-query="What has the customer said about Competitor X?">🥊 Analyze Competitor X</button>
+                <button class="loki-chip-btn" data-query="What should I do next?">🎯 What should I do next?</button>
+                <button class="loki-chip-btn" data-query="/xray">🔍 Run Deal X-Ray</button>
+                <button class="loki-chip-btn" data-query="/connect">🔗 LOKI Connect</button>
+                <button class="loki-chip-btn" data-query="Research Competitor X">🌐 Research Competitor X</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slash Command Autocomplete Suggestion Dropdown -->
+      <div class="loki-slash-dropdown" id="loki-slash-dropdown" style="display: none;">
+        <div class="loki-slash-item" data-cmd="/deal"><strong>/deal</strong> — Pin-to-pin Deal Intelligence Report</div>
+        <div class="loki-slash-item" data-cmd="/risks"><strong>/risks</strong> — Audit transparent deal risks & evidence</div>
+        <div class="loki-slash-item" data-cmd="/competitors"><strong>/competitors</strong> — Competitor mentions & battlecards</div>
+        <div class="loki-slash-item" data-cmd="/stakeholders"><strong>/stakeholders</strong> — Stakeholder influence matrix</div>
+        <div class="loki-slash-item" data-cmd="/objections"><strong>/objections</strong> — Unresolved objections & winning talk tracks</div>
+        <div class="loki-slash-item" data-cmd="/xray"><strong>/xray</strong> — Complete 18-dimension DEAL X-RAY</div>
+        <div class="loki-slash-item" data-cmd="/connect"><strong>/connect</strong> — LOKI CONNECT causal relationship flow</div>
+        <div class="loki-slash-item" data-cmd="/brief"><strong>/brief</strong> — Executive Deal Brief for leadership</div>
+        <div class="loki-slash-item" data-cmd="/research"><strong>/research</strong> — Conduct external web business research</div>
+        <div class="loki-slash-item" data-cmd="/actions"><strong>/actions</strong> — Next-best actions & follow-ups</div>
+        <div class="loki-slash-item" data-cmd="/history"><strong>/history</strong> — Similar historical won deals benchmarks</div>
+        <div class="loki-slash-item" data-cmd="/help"><strong>/help</strong> — Show all 17 LOKI commands</div>
+      </div>
+
+      <!-- Universal Command Bar -->
+      <div class="loki-input-container">
+        <input 
+          type="text" 
+          id="loki-user-input" 
+          class="loki-input-field" 
+          placeholder="Ask LOKI anything about this deal... or type / for commands (e.g. /xray, /risks)"
+          autocomplete="off"
+        >
+        <button id="loki-send-btn" class="loki-send-btn" title="Send (Enter)">
+          <span>Ask LOKI &rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: LOKI CONNECT VISUAL GRAPH ==================== -->
+  <div class="modal-overlay" id="modal-loki-connect" style="display: none;">
+    <div class="modal-card loki-connect-modal-card">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <span class="modal-icon">🔗</span>
+          <div>
+            <h3>LOKI CONNECT &mdash; Pin-to-Pin Deal Relationship Chain</h3>
+            <p class="modal-subtitle">Visual causal links from customer requirements to competitor pressure and recommended actions.</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="close-modal-loki-connect">&times;</button>
+      </div>
+      
+      <div class="loki-connect-grid">
+        <!-- Left: Interactive Node Chain -->
+        <div class="loki-chain-scroll" id="loki-connect-chain-nodes">
+          <!-- Filled dynamically -->
+        </div>
+
+        <!-- Right: Node Inspector Drawer -->
+        <div class="loki-inspector-panel" id="loki-connect-inspector">
+          <div class="loki-inspector-title" id="loki-insp-title">Select a node to inspect evidence</div>
+          <div class="loki-inspector-field">
+            <span class="loki-insp-label">Step & Category</span>
+            <span class="loki-insp-val" id="loki-insp-category">Click any step on the left</span>
+          </div>
+          <div class="loki-inspector-field">
+            <span class="loki-insp-label">Evidence Source</span>
+            <span class="loki-insp-val" id="loki-insp-source">&mdash;</span>
+          </div>
+          <div class="loki-inspector-field">
+            <span class="loki-insp-label">Stored Ground Fact vs Interpretation</span>
+            <div class="loki-insp-fact-box" id="loki-insp-fact">Evidence details will display here.</div>
+          </div>
+          <div class="loki-inspector-field">
+            <span class="loki-insp-label">Underlying Quote / Details</span>
+            <p class="loki-insp-val" id="loki-insp-details">&mdash;</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="action-btn secondary" id="btn-close-loki-connect">Close</button>
+        <button class="action-btn primary" id="btn-loki-connect-to-xray">Open Complete Deal X-Ray &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: DEAL X-RAY (18 PIN-TO-PIN DIMENSIONS) ==================== -->
+  <div class="modal-overlay" id="modal-deal-xray" style="display: none;">
+    <div class="modal-card deal-xray-modal-card">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <span class="modal-icon">🔍</span>
+          <div>
+            <h3>DEAL X-RAY &mdash; 18-Dimension Pin-to-Pin Diagnostic</h3>
+            <div class="xray-header-meta">
+              <span id="xray-customer-label" style="font-weight: 700; color: #fff;">ABC Technologies</span>
+              <span class="xray-health-gauge" id="xray-health-pill">Deal Health: 68/100 (Medium Risk)</span>
+              <span id="xray-arr-label" style="color: var(--text-dim); font-size: 0.85rem;">₹25,00,000 ($300k ARR)</span>
+            </div>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="close-modal-deal-xray">&times;</button>
+      </div>
+
+      <div class="xray-dimensions-grid" id="deal-xray-grid">
+        <!-- 18 Dimensions loaded dynamically -->
+      </div>
+
+      <div class="modal-footer">
+        <button class="action-btn secondary" id="btn-close-deal-xray">Close</button>
+        <button class="action-btn primary" id="btn-xray-ask-loki">Ask LOKI to Address Risks &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: LOKI EXECUTIVE DEAL BRIEF ==================== -->
+  <div class="modal-overlay" id="modal-loki-brief" style="display: none;">
+    <div class="modal-card" style="width: 760px; max-width: 95vw;">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <span class="modal-icon">⚡</span>
+          <div>
+            <h3>EXECUTIVE DEAL BRIEF &mdash; Management Dossier</h3>
+            <p class="modal-subtitle">Synthesized by LOKI for sales leadership & executive alignment.</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="close-modal-loki-brief">&times;</button>
+      </div>
+      <div class="modal-body" style="max-height: 65vh; overflow-y: auto;">
+        <div id="loki-brief-content" style="white-space: pre-wrap; font-family: inherit; font-size: 0.88rem; line-height: 1.5; color: var(--text-main);">
+          Generating executive brief...
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="action-btn secondary" id="btn-copy-loki-brief">📋 Copy Brief</button>
+        <button class="action-btn primary" id="btn-close-loki-brief">Done</button>
       </div>
     </div>
   </div>

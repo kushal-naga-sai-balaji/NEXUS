@@ -1,147 +1,146 @@
-# NEXUS // DEAL INTELLIGENCE AGENT
-### Autonomous Enterprise B2B Sales Copilot with Persistent Biomimetic Memory
-**Built for the Vectorize Hindsight Hackathon 3.0**
+# NEXUS
+### Autonomous Enterprise B2B Sales Platform powered by LOKI
+**The Intelligence Behind Every Deal**
 
-![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
-![Vectorize Hindsight](https://img.shields.io/badge/Memory-Vectorize%20Hindsight-indigo.svg)
-![FastAPI](https://img.shields.io/badge/Backend-FastAPI-emerald.svg)
-![Groq](https://img.shields.io/badge/LLM-Groq%20Llama%203.3-orange.svg)
+> **"Remember every deal. Understand every conversation. Act on every opportunity."**
+> 
+> *Introducing **LOKI** — Live Operational Knowledge Intelligence:*
+> **"Ask anything. Know everything. Act intelligently."**
 
----
-
-## 🚀 Executive Summary & Problem Solved
-
-In high-stakes enterprise B2B sales cycles (6 to 12 months, $200k-$1M+ ARR), **context amnesia is the #1 killer of deal velocity and profit margin**.
-
-Sales reps spend hours re-reading scattered CRM notes before calls, or worse, enter executive negotiations blind:
-- They forget that the **CTO** already approved the technical architecture 2 months ago.
-- They fail to address the **CISO's** specific requirements for isolated vector schemas, triggering a 4-week security audit freeze.
-- When the **CFO** drops a pricing ultimatum (*"Datadog offered 32% off, match it or we walk"*), an amnesiac AI or inexperienced rep panics and slashes the price by $200,000—destroying company margin.
-
-**NEXUS** solves this by using **Vectorize Hindsight**, a biomimetic agent memory system that **retains**, **recalls**, and **reflects** across deal cycles. Over time, Nexus transforms from an assistant into an indispensable enterprise sales co-pilot that recalls historical objection handling, predicts competitor traps, and protects contract margins.
+![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688.svg?style=flat&logo=fastapi&logoColor=white)
+![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg?style=flat&logo=python&logoColor=white)
+![LOKI AI](https://img.shields.io/badge/AI%20Copilot-LOKI%20Intelligence-a855f7.svg?style=flat)
+![Vectorize Hindsight](https://img.shields.io/badge/Memory-Vectorize%20Hindsight-6366f1.svg?style=flat)
+![Groq](https://img.shields.io/badge/LLM-Groq%20Llama%203.3-f97316.svg?style=flat)
+![Tests](https://img.shields.io/badge/Tests-21%2F21%20Passing-success.svg?style=flat)
 
 ---
 
-## 🧠 Why Vectorize Hindsight Memory is the Core Engine
+## 🧠 Meet LOKI — Live Operational Knowledge Intelligence
 
-Unlike stateless RAG or basic chat history windows that blow past context token limits, Nexus leverages Hindsight's **4-tier biomimetic cognitive hierarchy** and **TEMPR multi-strategy search**:
+**LOKI** is not a normal chatbot. It is the **autonomous AI intelligence layer of NEXUS** that understands the entire application, every deal, customer information, stakeholder activity, conversation history, CRM data, analytics, tasks, competitors, and relevant external business information.
+
+* **Universal Command Bar:** `"Ask LOKI anything about this deal... or type /"`
+* **17 Slash Commands:** `/deal`, `/risks`, `/xray`, `/connect`, `/competitors`, `/stakeholders`, `/objections`, `/meetings`, `/memory`, `/actions`, `/history`, `/analytics`, `/company`, `/research`, `/brief`, `/help`.
+* **LOKI CONNECT:** Visual causal relationship graph linking customer requirements, deployment deadlines, technical objections, CTO concerns, Competitor X pressure, pricing discussions, deal risks, and next-best actions.
+* **DEAL X-RAY:** 18-dimension pin-to-pin diagnostic auditing the entire deal health.
+* **ASK WHY Engine:** 1-click root cause explanation detailing triggers, considered transaction records, and historical precedent.
+* **External Business Intelligence:** Dedicated company and competitor research mode with verified source citations.
+
+---
+
+## 🌟 Executive Overview
+
+**NEXUS** is an autonomous enterprise B2B sales copilot engineered to eliminate deal context amnesia. Rather than acting as a generic conversational chatbot or static CRM, NEXUS operates as an active, real-time intelligence partner before, during, and after high-stakes enterprise sales calls.
 
 ```
-                       ┌──────────────────────────────────────────────┐
-                       │           OPINION / MENTAL MODELS            │
-                       │   Synthesized beliefs & winning playbooks    │
-                       └──────────────────────▲───────────────────────┘
-                                              │ Hindsight 'reflect'
-                       ┌──────────────────────┴───────────────────────┐
-                       │                 OBSERVATION                  │
-                       │   Cross-deal pattern & competitor dynamics   │
-                       └──────────────────────▲───────────────────────┘
-                                              │ Pattern consolidation
-                       ┌──────────────────────┴───────────────────────┐
-                       │                  EXPERIENCE                  │
-                       │   Chronological meetings, quotes, & outcomes │
-                       └──────────────────────▲───────────────────────┘
-                                              │ Hindsight 'retain'
-                       ┌──────────────────────┴───────────────────────┐
-                       │                    WORLD                     │
-                       │  Account facts, firmographics, & constraints │
-                       └──────────────────────────────────────────────┘
+BEFORE THE CALL:  "Here is everything you need to know in 30 seconds."
+DURING THE CALL:  "Here is what is happening right now, with live objection coaching & historical proof."
+AFTER THE CALL:   "Here is what happened, the meeting summary, and your prioritized next best actions."
+ACROSS LIFECYCLE: "I remember every deal, conversation, objection, and stakeholder priority across 4 cognitive memory tiers."
 ```
 
-### 1. The 4 Biomimetic Memory Tiers
-1. **World Tier (Ground Truth Facts):**
-   - Company firmographics (Acme Cloud Services, 4,200 employees, Oct 31 fiscal deadline).
-   - Buying committee profiles (Marcus Vance CTO, Elena Rostova CISO, David Sterling CFO, Chloe Zhao Procurement).
-   - Compliance constraints (SOC2 Type II, single-tenant vector partitioning).
-2. **Experience Tier (Episodic History):**
-   - Meeting 1 Discovery (Marcus reveals custom LangChain RAG failure).
-   - Meeting 2 Security Review (Elena challenges cross-tenant memory leakage).
-   - Meeting 3 Pricing Review (David demands 32% discount to match Datadog).
-   - Historical Won Deals (Won Deal #84 Nordic Cloud: closed $580k by trading migration credits).
-3. **Observation Tier (Emergent Patterns):**
-   - *"Enterprise CFOs use competitor discount quotes as an anchoring bluff. In 87% of won deals, offering migration engineering credits rather than base ARR discounts preserves 100% of recurring margins."*
-   - *"Providing CISO Elena with isolated vector diagrams in advance accelerates security clearance from 21 days down to 4 days."*
-4. **Opinion Tier (Strategic Mental Models):**
-   - **Datadog Displacement Playbook:** Reframe Datadog as *"the rear-view mirror for raw telemetry"*, while Hindsight is *"the autonomous driver that learns and acts"*.
-   - **CFO Buyer Psychology:** Respects empirical data and firm posture; becomes suspicious if vendor concedes quickly.
+---
+
+## 🚀 Key Capabilities & Architecture
+
+### 1. 3-Panel Real-Time Sales Call Cockpit
+* **Left Panel (Live Conversation):** Real-time streaming conversation transcript with speaker identification (Sales Rep vs Customer / CTO Rohan Sharma) and simulated audio waveform.
+* **Center Panel (Real-Time Intelligence):** Instant detection cards with priority badges:
+  * 🔴 **Critical:** Pricing objection detected vs Competitor X
+  * 🟢 **Buying Signal:** Solution fit and validation detected
+  * 📌 **Requirement:** December deployment deadline & 24/7 Support SLA
+  * 🥊 **Competitor Mention:** Competitor X battlecard and positioning
+  * 🎯 **Next Best Action:** Recommend TCO & MTTR presentation within 48 hours
+* **Right Panel (Persistent Deal Memory):** Live snapshot of account ground facts, decision makers (CTO Rohan Sharma, CFO Anita Roy), past objections, active risks, and pending commitments.
+
+### 2. Live Demo Mode (Sections 23 & 28)
+Click **▶ START LIVE DEMO** in the top navigation header or live cockpit to run the simulated call:
+1. Sales Rep opens discovery review with **ABC Technologies**.
+2. CTO Rohan Sharma states: *"We need the platform deployed before December."* → 📌 **Deadline Detected: December (High Priority)**.
+3. Rohan Sharma raises objection: *"Your price is higher than Competitor X."* → 🔴 **Pricing Objection Detected** + 🥊 **Competitor X Mention**.
+4. NEXUS queries Deal Memory & Historical Deals (Deal #1024 FinTech ₹30L, Deal #1088 SaaS ₹22L, Deal #84 Nordic Cloud) to surface:
+   * **Grounding:** Customer Budget ₹25L ($300k ARR), previous discount ask 15%.
+   * **Winning Pattern:** ROI/TCO reframe worked in 4 similar deals.
+   * **Suggested Response:** Shift discussion to 74% MTTR reduction and engineering toil savings.
+   * **Next Best Action:** Schedule technical security demo with CTO within 2 business days.
+5. Rohan asks: *"Can you provide 24/7 support?"* → 📌 **Requirement Detected: 24/7 Dedicated SLA**.
+6. Meeting ends → Post-Meeting Summary modal appears with pre-filled fields.
+7. Rep clicks **✓ Approve & Commit to Persistent Deal Memory** → Updates memory and creates tasks.
+
+### 3. Pre-Meeting 30-Second Deal Briefing (Section 4)
+Click **⚡ 30s Deal Briefing** to inspect an instant executive summary:
+* **Account:** ABC Technologies (Enterprise Security Platform)
+* **Stage & Value:** Negotiation — ₹25,00,000 ($300,000 ARR)
+* **Key Requirements:** Enterprise Security, Deployment before December 2026, 24/7 SLA
+* **Unresolved Objections:** Pricing vs Competitor X, Implementation timeline
+* **Competitors:** Competitor X (aggressive discounting, lower initial price)
+* **Decision Makers:** CTO Rohan Sharma (Tech/Security), CFO Anita Roy (Budget)
+* **Recommended Focus:** "Address pricing through ROI and total cost of ownership."
+* **Deal Health:** 68/100 (Medium Risk — pricing objection pending)
+
+### 4. 4-Tier Biomimetic Memory Architecture
+Powered by Vectorize Hindsight and structured JSON persistence:
+* **World Tier (Ground Truth):** Account firmographics, budget ₹25L, security constraints, decision makers.
+* **Experience Tier (Episodic History):** Specific transcripts, meeting summaries, quotes, timestamps.
+* **Observation Tier (Emergent Patterns):** Cross-deal competitor dynamics (*"Displacing Competitor X requires TCO framing rather than discounting"*).
+* **Opinion Tier (Mental Models):** Organizational playbooks, negotiation boundaries, give-get tradeoffs.
+
+### 5. 16 Dedicated Application Views (Section 17)
+1. **Live Call:** 3-panel real-time cockpit with streaming transcript, alerts, and memory.
+2. **Dashboard:** High-level executive pipeline, win rates, active risks, and memory health.
+3. **Deals Pipeline:** Kanban board across Discovery, Qualification, Proposal, Negotiation, Closed Won.
+4. **Deal Details:** 15 modular sub-tabs (Overview, Timeline, Customer, Stakeholders, Requirements, Objections, Competitors, Pricing, Meetings, Emails, Tasks, Risks, AI Insights, Memory, Historical Comparison).
+5. **Deal Memory:** Visual knowledge graph and node inspection across the 4 cognitive tiers.
+6. **Customers:** Enterprise account profiles (ABC Technologies, Nova Systems, Vertex Finance, CloudCore Solutions).
+7. **Stakeholders:** Influence matrices, personal concerns, and buying priorities (CTO, CFO, CISO, VP Eng).
+8. **Competitors:** Battlecards, perception tracking, win/loss rates (Competitor X, Legacy Monolith, CyberShield).
+9. **Objections:** Classified objection library with historical win patterns and talking points.
+10. **Meetings:** Logged meetings, transcripts, and auto-generated meeting summaries.
+11. **Tasks:** Interactive follow-up task board with status toggling (Pending, In Progress, Completed).
+12. **Emails:** Inbound/outbound email intelligence and commitment extraction.
+13. **Insights:** AI-synthesized deal health trends and risk signals.
+14. **Historical Deals:** Benchmark repository of closed deals (Deal #1024, Deal #1088, Deal #84, Deal #91).
+15. **Analytics:** Velocity, objection frequency, competitor presence, and margin preservation metrics.
+16. **Integrations & Settings:** Salesforce, HubSpot, Gong, Slack, Vectorize Hindsight, and Groq API configs.
 
 ---
 
+## 💻 Tech Stack
+
+* **Backend:** Python 3.10+, FastAPI, Uvicorn, Pydantic, HTTPX
+* **Cognitive Memory:** Vectorize Hindsight Cloud SDK + In-Memory Biomimetic Engine
+* **Inference LLM:** Groq Llama-3.3-70B-Versatile (Sub-second enterprise inference)
+* **Frontend:** Vanilla HTML5, Modern CSS3 with Cyberpunk Glassmorphism & Custom Properties, ES6+ JavaScript
+* **Typography:** Plus Jakarta Sans, Outfit, JetBrains Mono
 
 ---
 
-## 🖼️ System Architecture Diagram
-
-![Nexus System Architecture](docs/architecture_diagram.jpg)
-
-For the complete architectural deep-dive and interactive Mermaid diagram, see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
-
----
-
-## 🚀 1-Click Guided Demo Flow (For Hackathon Judges)
-
-The app includes an interactive **1-Click Guided Demo** mode located right in the top navigation bar:
-
-1. **Step 1: Day 1 (Cold Discovery & Grounding)**
-   - CTO Marcus Vance reveals internal custom RAG failure.
-   - Watch Nexus retain foundational facts into Hindsight's World & Experience memory tiers.
-2. **Step 2: Day 30 (Security Interrogation & Memory Recall)**
-   - CISO Elena Rostova challenges multi-tenant memory leakage.
-   - Nexus executes TEMPR recall, retrieving cryptographic namespace isolation and SOC2 compliance proof.
-3. **Step 3: Day 60 (CFO Price War & Competitor Trap)**
-   - CFO David Sterling demands a 32% Datadog discount match.
-   - Nexus generates a pre-call battle briefing equipping the rep with the $170k margin defense script.
-4. **Step 4: Day 90 (Deep Strategic Reflection)**
-   - Hindsight runs `reflect` across all deal banks, synthesizing an updated Datadog Displacement Playbook.
-
----
-
-## 🛠️ Tech Stack & Architecture
-
-- **Cognitive Memory:** [Vectorize Hindsight](https://hindsight.vectorize.io/) via `hindsight-client` Python SDK (Hindsight Cloud & Hybrid Biomimetic Engine).
-- **Inference LLM:** Groq (Llama 3.3 70B Versatile) for ultra-fast sub-second generation.
-- **Backend API:** FastAPI, Uvicorn, Pydantic, HTTPX.
-- **Frontend Cockpit:** Ultra-premium Vanilla CSS & JavaScript, Cyberpunk Glassmorphism, Google Fonts (Outfit, Plus Jakarta Sans, JetBrains Mono).
-- **Deployment Ready:** 100% self-contained with instant zero-setup sandbox mode and direct Hindsight Cloud key integration.
-
----
-
-## 🏁 Quickstart & Installation
+## 🏃 Local Setup & Run Guide
 
 ### 1. Prerequisites
-- Python 3.10+ (macOS / Linux / Windows)
-- Node.js (optional, for browser/scripts)
+* Python 3.10 or higher
+* Modern Web Browser (Chrome, Safari, Firefox, Edge, Arc)
 
-### 2. Clone and Setup
+### 2. Installation
 ```bash
-git clone https://github.com/your-repo/nexus-deal-intelligence.git
+# Clone the repository
+git clone https://github.com/your-org/nexus-deal-intelligence.git
 cd "Hackathon 3.0"
 
-# Create virtual environment and install dependencies
+# Set up virtual environment
 python3 -m venv .venv
 source .venv/bin/activate
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 3. Configure API Keys (Optional)
-Copy `.env.example` to `.env`:
-```bash
-cp .env.example .env
-```
-Add your Hindsight Cloud API Key and Groq API Key:
-```env
-HINDSIGHT_BASE_URL=https://api.hindsight.vectorize.io
-HINDSIGHT_API_KEY=your_hindsight_api_key_here
-GROQ_API_KEY=your_groq_api_key_here
-```
-> **Tip:** You can also enter and update your API keys dynamically inside the app using the **Settings ⚙️** modal in the top navbar!
-> Use promo code **`MEMHACK99`** on [ui.hindsight.vectorize.io](https://ui.hindsight.vectorize.io) for $50 in free credits.
-
-### 4. Launch the Server
+### 3. Run Server
 ```bash
 ./run.sh
 ```
-Or directly with Uvicorn:
+Or directly:
 ```bash
 ./.venv/bin/uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 ```
@@ -149,24 +148,40 @@ Or directly with Uvicorn:
 Open your browser to:
 👉 **`http://localhost:8000`**
 
-### 5. Run the Automated Test Suite
+### 4. Run Automated Test Suite
 ```bash
-./.venv/bin/python -m unittest backend/test_api.py
+PYTHONPATH=. ./.venv/bin/python backend/test_api.py
 ```
-*(All 7 tests validate Hindsight memory operations, TEMPR search, coaching, and guided demo flow.)*
+*(All 20 unit tests pass, validating memory tiers, objection coaching, briefings, and demo execution.)*
 
 ---
 
+## 🎮 Recommended Demo Walkthrough
 
-
-## 📊 Measurable Real-World Impact
-
-- **+28% Win Rate:** Retaining past objection handling converts contested competitive bakeoffs into wins.
-- **$170,000+ Margin Preserved Per Enterprise Deal:** Defends list price against competitor discounting tactics.
-- **90% Triage Acceleration:** Pre-call briefing prep drops from 45 minutes to 30 seconds.
-- **100% Institutional Memory Retention:** When sales reps leave, their learned objection intelligence remains permanently inside Hindsight.
+1. Open **`http://localhost:8000`** in your browser.
+2. The app loads directly into the **Live Call Cockpit** with **ABC Technologies** selected.
+3. Click **⚡ 30s Deal Briefing** to inspect the pre-meeting intelligence card.
+4. Click **▶ START LIVE DEMO** in the header.
+5. Watch the dialogue stream in the Left Panel, while the Center Panel triggers:
+   * 🟢 Requirement (Security platform)
+   * 📌 Deadline (December 2026)
+   * 🔴 Pricing Objection vs Competitor X with historical citations (Deal #1024 FinTech ₹30L)
+   * 🎯 Next Best Action (TCO & MTTR reframe within 48h)
+   * 📌 SLA Requirement (24/7 Dedicated Support)
+6. When the call completes, review the editable **Post-Meeting Summary** and click **✓ Approve & Commit to Persistent Deal Memory**.
+7. Navigate to **Tasks** to see the newly generated follow-ups. Click the status button to mark them completed.
+8. Explore **Deals**, **Deal Details**, **Deal Memory**, **Competitors**, and **Analytics** to see the full intelligence depth.
 
 ---
- Article - https://www.reddit.com/u/kushal_22/s/oWzrbSgIdw
- 
- linkedin - https://lnkd.in/p/dfCq2ZBJ
+
+## 🛡️ Enterprise Security & Data Governance
+
+* Zero secret leakage in frontend bundles; all API keys managed via environment variables (`.env`).
+* Role-Based Access Control (RBAC) supporting **Sales Representative**, **Sales Manager**, and **Admin**.
+* Isolated deal memory banks per customer account to prevent cross-tenant data bleed.
+* Transparent evidence citations: AI recommendations cite historical deal IDs rather than hallucinating facts.
+
+---
+
+## 📄 License
+MIT License. Built with ❤️ for enterprise sales excellence.
